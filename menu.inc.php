@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="Logo du site"></a>
-    <a class="navbar-brand" href="index.php">Esigelec</a>
+    <a class="navbar-brand" href="index.php">
+    <img src="images/logo.png" alt="Bootstrap" width="70" height="55">
+    </a>
+    <a class="navbar-brand" href="index.php">ESIG'PLAY</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
