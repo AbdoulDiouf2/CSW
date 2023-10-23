@@ -1,3 +1,15 @@
-navbar {
+.custom-bg {
     background-color: #ff6666;
+}
+
+.navbar {
+    font-family: 'Handlee', cursive;
+}
+
+footer {
+    font-family: 'Handlee', cursive;
+}
+
+body {
+    font-family: 'Handlee', cursive;
 }

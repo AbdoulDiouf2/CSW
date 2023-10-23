@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
+<nav class="navbar navbar-expand-md custom-bg border-body" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php">
     <img src="images/logo.png" alt="Bootstrap" width="70" height="55">
