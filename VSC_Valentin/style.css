@@ -1,0 +1,23 @@
+.custom-bg {
+    background-color: #ff6666;
+}
+
+.navbar {
+    font-family: 'Handlee', cursive;
+}
+
+footer {
+    font-family: 'Handlee', cursive;
+/*    height: 100px;*/
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+body {
+    font-family: 'Handlee', cursive;
+}
+
+
+
+
