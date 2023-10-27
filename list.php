@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $titre = "Administratuer";
+    $titre = "Administrateur";
     include 'header.inc.php';
     include 'menuadmin.php';
 ?>
@@ -23,7 +23,8 @@
   <tbody>
   
   <?php
-
+$mysqli = mysqli_connect("localhost","root","","tp");
+/*
 // Connexion :
 require_once("param.inc.php");
 $mysqli = new mysqli($host, $login, $passwd, $dbname);
@@ -31,10 +32,11 @@ if ($mysqli->connect_error) {
     die('Erreur de connexion (' . $mysqli->connect_errno . ') '
             . $mysqli->connect_error);
 }
+*/
 
 
 $i=1;
-if ($stmt = $mysqli->prepare("SELECT * FROM user WHERE 1")) 
+if ($stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE 1")) 
 {
  
   $stmt->execute();
@@ -43,11 +45,11 @@ if ($stmt = $mysqli->prepare("SELECT * FROM user WHERE 1"))
   {     
     echo '<tr>';     
     echo  '<th scope="row">'.$i.'</th>';
-    echo'<td>'.$row['nom'].'</td>';
-    echo'<td>'.$row['prenom'].'</td>';
-    echo'<td>'.$row['email'].'</td>';
-    echo'<td>'.$row['role'].'</td>';
-    echo'<td><a class="btn btn-danger" href="delete.php?email='.$row['email'].'" role="button">Delete</a></td>';
+    echo'<td>'.$row['nom_util'].'</td>';
+    echo'<td>'.$row['prenom_util'].'</td>';
+    echo'<td>'.$row['mail_util'].'</td>';
+    echo'<td>'.$row['role_util'].'</td>';
+    echo'<td><a class="btn btn-danger" href="delete.php?email='.$row['mail_util'].'" role="button">Delete</a></td>';
     echo '</tr>';
 $i++;   
 }

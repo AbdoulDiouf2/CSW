@@ -4,9 +4,15 @@
     include 'header.inc.php';
     include 'menuadmin.php';
 ?>
+<div style="width: 200px; height: 100px; margin : auto;">
+
+</div>
+
+<div style="width: 200px; height: 100px; margin : auto;">
+    <a class="nav-link active" aria-current="page" href="page_ajout_jeu.php">Ajouter un jeu</a>  
+</div>
 
 <div class="container">
-
 
 
 
@@ -26,7 +32,6 @@
   <?php
 $mysqli = mysqli_connect("localhost","root","","tp");
 /*
-
 // Connexion :
 require_once("param.inc.php");
 $mysqli = new mysqli($host, $login, $passwd, $dbname);
@@ -62,22 +67,8 @@ $i++;
 
 </table>
 
-<?php
-    
-
-    if(isset($_SESSION['message'])) {
-        echo '<div class="alert alert-primary alert-dismissible fade show" role="alert">';
-        echo $_SESSION['message'];
-        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
-        echo '</div>';
-        unset($_SESSION['message']);
-    }
-    ?>
-
-
 
 </div>
 <?php
     include 'footer.inc.php';
 ?>
-
