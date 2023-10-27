@@ -1,5 +1,7 @@
 <?php
-    session_start();
+
+    require_once("roleadmin.php");
+
     $titre = "Administrateur";
     include 'header.inc.php';
     include 'menuadmin.php';
@@ -23,7 +25,8 @@
   <tbody>
   
   <?php
-$mysqli = mysqli_connect("localhost","root","","tp");
+require_once("param.inc.php");
+$mysqli = mysqli_connect("localhost","root",$passwd,"tp");
 /*
 // Connexion :
 require_once("param.inc.php");
