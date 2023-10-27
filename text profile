@@ -7,3 +7,27 @@
         echo'</li>';
         }
         ?>
+
+      </ul>
+      <?php
+      if(!(isset($_SESSION['PROFILE'])))
+      {
+        echo'<ul class="navbar-nav mb-lg-o">
+        <li class="nav-item">
+          <a class="nav-link" href="inscription.php">Inscription</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="connexion.php">Connexion</a>
+            </li>
+            </ul>';
+
+      }
+      else {
+        echo '<ul class="navbar-nav mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="logout.php">Deconnexion</a>
+          </li>
+        
+        </ul>';
+      }
+      ?>
