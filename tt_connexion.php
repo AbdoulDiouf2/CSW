@@ -31,7 +31,7 @@
             if (password_verify($password,$row["mdp_util"])) 
             {
                   // Redirection vers la page admin.php ou autres pages en fonction du role (tuteur,admin, etc.);
-
+                $_SESSION['PROFILE']=$row;
                 //$_SESSION['message'] = "Authentification réussi pour un role inconnu.";
                 if($row["role_util"]==1){
                   
