@@ -8,7 +8,7 @@
   $categorie = htmlentities($_POST['categorie']);
   $regle = htmlentities($_POST['regle']);
   
-  $mysqli = mysqli_connect("localhost","root","","tp");
+  $mysqli = mysqli_connect("localhost","root","root","tp");
   /*
   // Connexion :
   require_once("param.inc.php");
