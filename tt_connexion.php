@@ -2,11 +2,11 @@
   session_start(); // Pour les massages
   
  
-  /*
+  
   $email =  htmlentities($_POST['email']);
   $password = htmlentities($_POST['password']);
-  $mysqli = mysqli_connect("localhost","root","","tp");
-  */
+  //$mysqli = mysqli_connect("localhost","root","","tp");
+  
   // Connexion :
   require_once("param.inc.php");
   $mysqli = new mysqli($host, $login, $passwd, $dbname);
@@ -41,7 +41,7 @@
                 }
                 if($row["role_util"]==2)
                 {
-                $_SESSION['message'] = "Authentification réussi pour un tuteur.";
+                $_SESSION['message'] = "Authentification réussi pour un membre.";
                 
                 header('Location: index.php');
               }          
