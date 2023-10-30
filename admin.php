@@ -9,7 +9,7 @@
 
 
 
-
+<br><br><br><br>
 <table class="table">
   <thead>
     <tr>
@@ -24,7 +24,7 @@
   <tbody>
   
   <?php
-$mysqli = mysqli_connect("localhost","root","","tp");
+$mysqli = mysqli_connect("localhost","root","root","tp");
 /*
 
 // Connexion :
@@ -74,7 +74,7 @@ $i++;
     }
     ?>
 
-
+<br><br><br><br>
 
 </div>
 <?php
