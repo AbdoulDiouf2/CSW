@@ -5,6 +5,7 @@
     include 'menu.inc.php';
 ?>
 <div class="container">
+<br><br>
 <h1>Inscription</h1>
 <form  method="POST" action="tt_inscription.php">
     <div class="container">
