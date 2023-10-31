@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Membre</a>
+    <a class="navbar-brand" href="membre.php">Membre</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,10 +15,10 @@
             <a class="nav-link" href="liste_jeux_membre.php">Tous les Jeux disponibles</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Partie à venir</a>
+            <a class="nav-link" href="comming_parts.php">Partie à venir</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Historique des jeux joués</a>
+            <a class="nav-link" href="historique_jeu.php">Historique des jeux joués</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Mon profil</a>
