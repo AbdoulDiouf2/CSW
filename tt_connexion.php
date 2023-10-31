@@ -2,12 +2,20 @@
   session_start(); // Pour les massages
   
  
+<<<<<<< HEAD
   $_SESSION['email'] = htmlentities($_POST['email']);
   
   $password = htmlentities($_POST['password']);
   require_once("param.inc.php");
   $mysqli = mysqli_connect("localhost","root",$passwd,"tp");
   /*
+=======
+  
+  $email =  htmlentities($_POST['email']);
+  $password = htmlentities($_POST['password']);
+  //$mysqli = mysqli_connect("localhost","root","","tp");
+  
+>>>>>>> cceddc702de5b9405d2452e9a740856195667279
   // Connexion :
   require_once("param.inc.php");
   $mysqli = new mysqli($host, $login, $passwd, "tp");
@@ -42,16 +50,23 @@
                 }
                 if($row["role_util"]==2)
                 {
+<<<<<<< HEAD
                 $_SESSION['isAdmin'] = false;
+=======
+>>>>>>> cceddc702de5b9405d2452e9a740856195667279
                 $_SESSION['message'] = "Authentification réussi pour un membre.";
                 
-                header('Location: index.php');
+                header('Location: membre.php');
               }          
             
               }else { 
                 // Redirection vers la page d'authetification connexion.php
+<<<<<<< HEAD
                 $_SESSION['isAdmin'] = false;
                 $_SESSION['message'] = "Password Incorrect";
+=======
+              $_SESSION['message'] = "Username or Password Incorrect";
+>>>>>>> cceddc702de5b9405d2452e9a740856195667279
                 header('Location: connexion.php');
                 
               }    

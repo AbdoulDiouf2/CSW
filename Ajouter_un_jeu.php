@@ -11,8 +11,13 @@
   $description =  htmlentities($_POST['description']);
   $categorie = htmlentities($_POST['categorie']);
   $regle = htmlentities($_POST['regle']);
+<<<<<<< HEAD
   require_once("param.inc.php");
   $mysqli = mysqli_connect("localhost","root",$passwd,"tp");
+=======
+  
+  $mysqli = mysqli_connect("localhost","root","root","tp");
+>>>>>>> cceddc702de5b9405d2452e9a740856195667279
   /*
   // Connexion :
   require_once("param.inc.php");

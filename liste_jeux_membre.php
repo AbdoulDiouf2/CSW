@@ -2,19 +2,13 @@
     session_start();
     $titre = "Administrateur";
     include 'header.inc.php';
-    include 'menuadmin.php';
-    if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
-      // Redirigez l'utilisateur vers la page de connexion ou une page d'erreur
-      header("Location: tt_connexion.php"); // Remplacez ceci par l'URL de votre page de connexion
-      exit();
-  }
+    include 'menumembre.php';
 ?>
-
 <div class="container">
+<h1>Contenu</h1>
 
 
 
-<br><br><br><br>
 <table class="table">
   <thead>
     <tr>
@@ -29,14 +23,8 @@
   <tbody>
   
   <?php
-<<<<<<< HEAD
-  require_once("param.inc.php");
-$mysqli = mysqli_connect("localhost","root",$passwd,"tp");
-=======
 $mysqli = mysqli_connect("localhost","root","root","tp");
->>>>>>> cceddc702de5b9405d2452e9a740856195667279
 /*
-
 // Connexion :
 require_once("param.inc.php");
 $mysqli = new mysqli($host, $login, $passwd, $dbname);
@@ -72,22 +60,8 @@ $i++;
 
 </table>
 
-<?php
-    
-
-    if(isset($_SESSION['message'])) {
-        echo '<div class="alert alert-primary alert-dismissible fade show" role="alert">';
-        echo $_SESSION['message'];
-        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
-        echo '</div>';
-        unset($_SESSION['message']);
-    }
-    ?>
-
-<br><br><br><br>
 
 </div>
 <?php
     include 'footer.inc.php';
 ?>
-
