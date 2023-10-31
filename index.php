@@ -20,12 +20,38 @@
             unset($_SESSION['message']);
         }
     ?>
-    <div style="width: 100%; height: 100%; text-align: center">
-    <span style="color: #990000; font-size: 75px; font-family: Handlee; font-weight: 400; word-wrap: break-word">Bienvenue sur</span>
-    <span style="color: black; font-size: 75px; font-family: Handlee; font-weight: 400; word-wrap: break-word"> <br/></span>
-    <span style="color: #FF6666; font-size: 75px; font-family: Handlee; font-weight: 400; word-wrap: break-word">Esig’Play - Votre Portail de Jeux de <br/>Plateau</span>
+<!--
+    <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="#" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="#" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="#" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
+
+<hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
+-->
+    <div style="width: 100%; height: 100%; text-align: center">
+        <span style="color: #990000; font-size: 75px; font-family: Handlee; font-weight: 400; word-wrap: break-word">Bienvenue sur</span>
+        <span style="color: black; font-size: 75px; font-family: Handlee; font-weight: 400; word-wrap: break-word"> <br/></span>
+        <span style="color: #FF6666; font-size: 75px; font-family: Handlee; font-weight: 400; word-wrap: break-word">Esig’Play - Votre Portail de Jeux de <br/>Plateau</span>
+    </div>
+
+<hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
     <div class="container">
         <div class="row my-3">
             <div class="row">
@@ -40,7 +66,8 @@
             </div>
         </div>
     </div>
-    <hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
+
+<hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
     <div class="container">
         <div class="row my-3">
             <div class="row">
@@ -55,7 +82,8 @@
             </div>
         </div>
     </div>
-    <hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
+
+<hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
     <div class="container">
         <div class="row my-3">
             <div class="row">
@@ -70,7 +98,8 @@
             </div>
         </div>
     </div>
-    <hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
+
+<hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
     <div class="container">
         <div class="row my-3">
             <div class="row">
@@ -116,7 +145,7 @@
         </table>
     </div>
     
-    <hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
+<hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
     <div class="container">
         <div class="row my-3">
             <div class="row">
@@ -146,7 +175,7 @@
         </div>
     </div>
 
-    <hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
+<hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
     <div class="container">
         <div class="row my-3">
             <div class="row">
@@ -164,7 +193,7 @@
         </div>
     </div>
 
-    <hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
+<hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
     <div class="container">
         <div class="row my-3">
             <div class="row">
