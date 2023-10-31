@@ -12,12 +12,9 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nom</th>
-      <th scope="col">Prénom</th>
-      <th scope="col">Email</th>
-      <th scope="col">Role</th>
-      <th scope="col">Action</th>
+        <th scope="col">#</th>
+        <th scope="col">Nom du jeu</th>
+        <th scope="col">date du jeu</th>
     </tr>
   </thead>
   <tbody>
@@ -37,20 +34,24 @@ if ($mysqli->connect_error) {
 
 
 $i=1;
-if ($stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE 1")) 
+if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE 1")) 
 {
  
   $stmt->execute();
   $result = $stmt->get_result();   
   while($row = $result->fetch_assoc()) 
   {     
+    $stmt2 = $mysqli->prepare("SELECT nom_jeu FROM jeu WHERE id_jeu = ?");
+    $stmt2->bind_param("i", $row['id_jeu']);
+    $stmt2->execute();
+    $stmt2->bind_result($nomJeu);
+    $stmt2->fetch();
+    $stmt2->close();
     echo '<tr>';     
     echo  '<th scope="row">'.$i.'</th>';
-    echo'<td>'.$row['nom_util'].'</td>';
-    echo'<td>'.$row['prenom_util'].'</td>';
-    echo'<td>'.$row['mail_util'].'</td>';
-    echo'<td>'.$row['role_util'].'</td>';
-    echo'<td><a class="btn btn-danger" href="delete.php?email='.$row['mail_util'].'" role="button">Delete</a></td>';
+    echo'<td>'.$nomJeu.'</td>';
+    echo'<td>'.$row['date_Jeu'].'</td>';
+    echo'<td><a class="btn btn-danger" href="delete_Date.php?id_CreaJeu='.$i.'" role="button">Delete</a></td>';
     echo '</tr>';
 $i++;   
 }

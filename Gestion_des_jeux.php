@@ -3,13 +3,19 @@
     $titre = "Administrateur";
     include 'header.inc.php';
     include 'menuadmin.php';
+    if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
+      // Redirigez l'utilisateur vers la page de connexion ou une page d'erreur
+      header("Location: tt_connexion.php"); // Remplacez ceci par l'URL de votre page de connexion
+      exit();
+  }
 ?>
 <div style="width: 200px; height: 100px; margin : auto;">
 
 </div>
 
 <div style="width: 200px; height: 100px; margin : auto;">
-    <a class="nav-link active" aria-current="page" href="page_ajout_jeu.php">Ajouter un jeu</a>  
+    <a class="btn btn-primary" href="page_ajout_jeu.php" role="button">Ajouter un jeu</a>
+    
 </div>
 
 <div class="container">
@@ -30,7 +36,8 @@
   <tbody>
   
   <?php
-$mysqli = mysqli_connect("localhost","root","","tp");
+  require_once("param.inc.php");
+$mysqli = mysqli_connect("localhost","root",$passwd,"tp");
 /*
 // Connexion :
 require_once("param.inc.php");

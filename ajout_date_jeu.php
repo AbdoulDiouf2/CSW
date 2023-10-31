@@ -5,9 +5,13 @@
   $mailAdmin =  htmlentities($_POST['email']);
   $date = htmlentities($_POST['date']);
   $nom_jeu = htmlentities($_POST['nom']);
-  
-  
-  $mysqli = mysqli_connect("localhost","root","","tp");
+  if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
+    // Redirigez l'utilisateur vers la page de connexion ou une page d'erreur
+    header("Location: tt_connexion.php"); // Remplacez ceci par l'URL de votre page de connexion
+    exit();
+}
+  require_once("param.inc.php");
+  $mysqli = mysqli_connect("localhost","root",$passwd,"tp");
   /*
   // Connexion :
   require_once("param.inc.php");

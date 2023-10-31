@@ -1,16 +1,17 @@
 <?php
   session_start(); // Pour les massages
-  if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
-    // Redirigez l'utilisateur vers la page de connexion ou une page d'erreur
-    header("Location: tt_connexion.php"); // Remplacez ceci par l'URL de votre page de connexion
-    exit();
-}
+
   // Contenu du formulaire :
   $nom =  htmlentities($_POST['nom']);
-  $photo = htmlentities($_POST['photo']);
-  $description =  htmlentities($_POST['description']);
-  $categorie = htmlentities($_POST['categorie']);
-  $regle = htmlentities($_POST['regle']);
+  $prenom = htmlentities($_POST['prenom']);
+  $email =  htmlentities($_POST['email']);
+  $password = htmlentities($_POST['password']);
+  $role = 1; // 1 pour admin, 2 pour responsable PING, 3 pour eleve par exemple :o)
+
+  // Option pour bcrypt
+  $options = [
+        'cost' => 12,
+  ];
   require_once("param.inc.php");
   $mysqli = mysqli_connect("localhost","root",$passwd,"tp");
   /*
@@ -24,8 +25,9 @@
   */
 
   // Attention, ici on ne vérifie pas si l'utilisateur existe déjà
-  if ($stmt = $mysqli->prepare("INSERT INTO jeu(nom_jeu, photo_jeu, desc_jeu, categorie_jeu, regle_jeu) VALUES (?, ?, ?, ?, ?)")) {
-    $stmt->bind_param("sssss", $nom, $photo, $description, $categorie, $regle);
+  if ($stmt = $mysqli->prepare("INSERT INTO utilisateur(nom_util, prenom_util, mail_util, mdp_util, role_util) VALUES (?, ?, ?, ?, ?)")) {
+    $password = password_hash($password, PASSWORD_BCRYPT, $options);
+    $stmt->bind_param("ssssi", $nom, $prenom, $email, $password, $role);
     // Le message est mis dans la session, il est préférable de séparer message normal et message d'erreur.
     if($stmt->execute()) {
         $_SESSION['message'] = "Enregistrement réussi";
@@ -35,7 +37,7 @@
     }
   }
   // Redirection vers la page d'accueil par exemple :
-  header('Location: page_ajout_jeu.php');
+  header('Location: page_ajout_admin.php');
 
 
 ?>

@@ -3,6 +3,8 @@ session_start();
     $titre = "Connexion";
     include 'header.inc.php';
     include 'menu.inc.php';
+   
+
 ?>
 <div class="container">
     <h1>Connexion</h1>
@@ -16,6 +18,7 @@ session_start();
         }
     ?>
     <form  method="POST" action="tt_connexion.php">
+        
         <div class="container">
             <div class="row my-3">
                 <div class="row">
@@ -33,8 +36,10 @@ session_start();
                 </div>
             </div>
         </div>
+        
     </form>
 </div>
 <?php
     include 'footer.inc.php';
+  
 ?>
