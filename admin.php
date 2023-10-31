@@ -14,7 +14,7 @@
 
 
 
-<br><br><br><br>
+
 <table class="table">
   <thead>
     <tr>
@@ -29,12 +29,8 @@
   <tbody>
   
   <?php
-<<<<<<< HEAD
   require_once("param.inc.php");
 $mysqli = mysqli_connect("localhost","root",$passwd,"tp");
-=======
-$mysqli = mysqli_connect("localhost","root","root","tp");
->>>>>>> cceddc702de5b9405d2452e9a740856195667279
 /*
 
 // Connexion :
@@ -84,7 +80,7 @@ $i++;
     }
     ?>
 
-<br><br><br><br>
+
 
 </div>
 <?php

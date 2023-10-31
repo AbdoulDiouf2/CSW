@@ -6,23 +6,18 @@
   $prenom = htmlentities($_POST['prenom']);
   $email =  htmlentities($_POST['email']);
   $password = htmlentities($_POST['password']);
-  $role = 2; // 1 pour admin, 2 pour responsable PING, 3 pour eleve par exemple :o)
+  $role = 1; // 1 pour admin, 2 pour responsable PING, 3 pour eleve par exemple :o)
 
   // Option pour bcrypt
   $options = [
         'cost' => 12,
   ];
-<<<<<<< HEAD
   require_once("param.inc.php");
   $mysqli = mysqli_connect("localhost","root",$passwd,"tp");
   /*
-=======
-  $mysqli = mysqli_connect("localhost","root","root","tp");
-  
->>>>>>> cceddc702de5b9405d2452e9a740856195667279
   // Connexion :
   require_once("param.inc.php");
-  $mysqli = new mysqli($host, $login, $passwd, "tp");
+  $mysqli = new mysqli($host, $login, $passwd, tp);
   if ($mysqli->connect_error) {
       die('Erreur de connexion (' . $mysqli->connect_errno . ') '
               . $mysqli->connect_error);
