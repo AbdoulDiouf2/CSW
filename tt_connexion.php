@@ -43,12 +43,12 @@
                 {
                 $_SESSION['message'] = "Authentification réussi pour un membre.";
                 
-                header('Location: index.php');
+                header('Location: membre.php');
               }          
             
               }else { 
                 // Redirection vers la page d'authetification connexion.php
-              $_SESSION['message'] = "Password Incorrect";
+              $_SESSION['message'] = "Username or Password Incorrect";
                 header('Location: connexion.php');
                 
               }    

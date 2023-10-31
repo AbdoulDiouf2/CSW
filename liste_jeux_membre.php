@@ -1,10 +1,8 @@
 <?php
-
-//    require_once("roleadmin.php");
-  session_start();
+    session_start();
     $titre = "Administrateur";
     include 'header.inc.php';
-    include 'menuadmin.php';
+    include 'menumembre.php';
 ?>
 <div class="container">
 <h1>Contenu</h1>
@@ -15,18 +13,17 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Nom</th>
-      <th scope="col">Prénom</th>
-      <th scope="col">Email</th>
-      <th scope="col">Role</th>
-      <th scope="col">Action</th>
+      <th scope="col">Categorie</th>
+      <th scope="col">Jeu</th>
+      <th scope="col">Photo</th>
+      <th scope="col">Description</th>
+      <th scope="col">Regle</th>
     </tr>
   </thead>
   <tbody>
   
   <?php
-require_once("param.inc.php");
-$mysqli = mysqli_connect("localhost","root",$passwd,"tp");
+$mysqli = mysqli_connect("localhost","root","root","tp");
 /*
 // Connexion :
 require_once("param.inc.php");
@@ -39,7 +36,7 @@ if ($mysqli->connect_error) {
 
 
 $i=1;
-if ($stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE 1")) 
+if ($stmt = $mysqli->prepare("SELECT nom_jeu, desc_jeu, categorie_jeu, photo_jeu, regle_jeu FROM jeu WHERE 1")) 
 {
  
   $stmt->execute();
@@ -48,11 +45,11 @@ if ($stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE 1"))
   {     
     echo '<tr>';     
     echo  '<th scope="row">'.$i.'</th>';
-    echo'<td>'.$row['nom_util'].'</td>';
-    echo'<td>'.$row['prenom_util'].'</td>';
-    echo'<td>'.$row['mail_util'].'</td>';
-    echo'<td>'.$row['role_util'].'</td>';
-    echo'<td><a class="btn btn-danger" href="delete.php?email='.$row['mail_util'].'" role="button">Delete</a></td>';
+    echo'<td>'.$row['categorie_jeu'].'</td>';
+    echo'<td>'.$row['nom_jeu'].'</td>';
+    echo'<td>'.$row['photo_jeu'].'</td>';
+    echo'<td>'.$row['desc_jeu'].'</td>';
+    echo'<td>'.$row['regle_jeu'].'</td>';
     echo '</tr>';
 $i++;   
 }

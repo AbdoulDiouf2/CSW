@@ -16,6 +16,13 @@
           <a class="nav-link" href="page.php">Une page</a>
         </li>
       </ul>
+      
+      <form class="d-flex" role="search">
+        <input class="form-control me-2 bg-danger" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" style="--bs-bg-opacity: .5;" type="submit">Search</button>
+      </form>
+    
+
       <ul class="navbar-nav mb-lg-0">
         <li class="nav-item">
           <a class="nav-link"  href="aboutus.php">A Propos</a>
