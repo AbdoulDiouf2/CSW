@@ -15,11 +15,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isA
 
 <div style="width: 200px; height: 100px; margin : auto;">
     <a class="btn btn-primary" href="page_ajout_admin.php" role="button">Ajouter un profil Administrateur</a>
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> e075bc3bfd6dc18536d7af53d4e020db99a292b8
 </div>
     <h1>Informations Admin</h1> <!-- Le texte au-dessus de la première liste -->
 
@@ -65,11 +61,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isA
     </tr>
   </thead>
   <tbody>
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> e075bc3bfd6dc18536d7af53d4e020db99a292b8
   <?php
 require_once("param.inc.php");
 $mysqli = mysqli_connect("localhost","root",$passwd,"tp");
@@ -116,8 +108,4 @@ $i++;
 
 <?php
 include 'footer.inc.php';
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> e075bc3bfd6dc18536d7af53d4e020db99a292b8

@@ -2,24 +2,19 @@
   session_start(); // Pour les massages
   
  
-  $_SESSION['email'] = htmlentities($_POST['email']);
   
-<<<<<<< HEAD
   $_SESSION['email'] = htmlentities($_POST['email']);
-=======
->>>>>>> e075bc3bfd6dc18536d7af53d4e020db99a292b8
   $password = htmlentities($_POST['password']);
-  require_once("param.inc.php");
-  $mysqli = mysqli_connect("localhost","root",$passwd,"tp");
-  /*
+  //$mysqli = mysqli_connect("localhost","root","","tp");
+  
   // Connexion :
   require_once("param.inc.php");
-  $mysqli = new mysqli($host, $login, $passwd, "tp");
+  $mysqli = new mysqli($host, $login, $passwd, $dbname);
   if ($mysqli->connect_error) {
       die('Erreur de connexion (' . $mysqli->connect_errno . ') '
               . $mysqli->connect_error);
   }
-  */
+  
 
   
   
@@ -36,11 +31,7 @@
             if (password_verify($password,$row["mdp_util"])) 
             {
                   // Redirection vers la page admin.php ou autres pages en fonction du role (tuteur,admin, etc.);
-<<<<<<< HEAD
                 //$_SESSION['PROFILE']=$row;
-=======
-
->>>>>>> e075bc3bfd6dc18536d7af53d4e020db99a292b8
                 //$_SESSION['message'] = "Authentification réussi pour un role inconnu.";
                 if($row["role_util"]==1){
                   $_SESSION['isAdmin'] = true;
@@ -50,25 +41,16 @@
                 }
                 if($row["role_util"]==2)
                 {
-<<<<<<< HEAD
                   $_SESSION['isAdmin'] = false;
                   $_SESSION['message'] = "Authentification réussi pour un membre.";
-=======
-                $_SESSION['isAdmin'] = false;
-                $_SESSION['message'] = "Authentification réussi pour un membre.";
->>>>>>> e075bc3bfd6dc18536d7af53d4e020db99a292b8
                 
-                header('Location: index.php');
+                header('Location: membre.php');
               }          
             
               }else { 
                 // Redirection vers la page d'authetification connexion.php
                 $_SESSION['isAdmin'] = false;
-<<<<<<< HEAD
                 $_SESSION['message'] = "Username or Password Incorrect";
-=======
-                $_SESSION['message'] = "Password Incorrect";
->>>>>>> e075bc3bfd6dc18536d7af53d4e020db99a292b8
                 header('Location: connexion.php');
                 
               }    

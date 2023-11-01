@@ -18,11 +18,7 @@
     </tr>
   </thead>
   <tbody>
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> e075bc3bfd6dc18536d7af53d4e020db99a292b8
   <?php
 require_once("param.inc.php");
 $mysqli = mysqli_connect("localhost","root",$passwd,"tp");
@@ -40,11 +36,7 @@ if ($mysqli->connect_error) {
 $i=1;
 if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE 1")) 
 {
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> e075bc3bfd6dc18536d7af53d4e020db99a292b8
   $stmt->execute();
   $result = $stmt->get_result();   
   while($row = $result->fetch_assoc()) 
@@ -74,8 +66,4 @@ $i++;
 </div>
 <?php
     include 'footer.inc.php';
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> e075bc3bfd6dc18536d7af53d4e020db99a292b8

@@ -6,23 +6,22 @@
   $prenom = htmlentities($_POST['prenom']);
   $email =  htmlentities($_POST['email']);
   $password = htmlentities($_POST['password']);
-  $role = 1; // 1 pour admin, 2 pour responsable PING, 3 pour eleve par exemple :o)
+  $role = 2; // 1 pour admin, 2 pour responsable PING, 3 pour eleve par exemple :o)
 
   // Option pour bcrypt
   $options = [
         'cost' => 12,
   ];
-  require_once("param.inc.php");
-  $mysqli = mysqli_connect("localhost","root",$passwd,"tp");
-  /*
+  $mysqli = mysqli_connect("localhost","root","root","tp");
+  
   // Connexion :
   require_once("param.inc.php");
-  $mysqli = new mysqli($host, $login, $passwd, tp);
+  $mysqli = new mysqli($host, $login, $passwd, "tp");
   if ($mysqli->connect_error) {
       die('Erreur de connexion (' . $mysqli->connect_errno . ') '
               . $mysqli->connect_error);
   }
-  */
+  
 
   // Attention, ici on ne vérifie pas si l'utilisateur existe déjà
   if ($stmt = $mysqli->prepare("INSERT INTO utilisateur(nom_util, prenom_util, mail_util, mdp_util, role_util) VALUES (?, ?, ?, ?, ?)")) {
