@@ -21,10 +21,10 @@
             <a class="nav-link" href="page_ajout_date.php">Proposition Date</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="list.php">Gestion Créneaux</a>
+            <a class="nav-link" href="listCreneaux.php">Gestion Créneaux</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="list.php">Mon profil</a>
+            <a class="nav-link" href="page_ProfilAdmin.php">Mon profil</a>
           </li>
           </ul>
       
