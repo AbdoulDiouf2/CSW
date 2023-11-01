@@ -5,7 +5,10 @@
     header("Location: tt_connexion.php"); // Remplacez ceci par l'URL de votre page de connexion
     exit();
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e075bc3bfd6dc18536d7af53d4e020db99a292b8
   // Contenu du formulaire :
   $nom =  htmlentities($_POST['nom']);
   $photo = htmlentities($_POST['photo']);

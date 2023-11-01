@@ -14,7 +14,12 @@
 </div>
 
 <div style="width: 200px; height: 100px; margin : auto;">
+<<<<<<< HEAD
 <a class="btn btn-primary" href="page_ajout_jeu.php" role="button">Ajouter un jeu</a> 
+=======
+    <a class="btn btn-primary" href="page_ajout_jeu.php" role="button">Ajouter un jeu</a>
+    
+>>>>>>> e075bc3bfd6dc18536d7af53d4e020db99a292b8
 </div>
 
 <div class="container">

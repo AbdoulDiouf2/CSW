@@ -3,9 +3,10 @@ session_start();
     $titre = "Connexion";
     include 'header.inc.php';
     include 'menu.inc.php';
+   
+
 ?>
 <div class="container">
-    <br>
     <h1>Connexion</h1>
     <?php
         if(isset($_SESSION['message'])) {
@@ -16,8 +17,8 @@ session_start();
             unset($_SESSION['message']);
         }
     ?>
-    <br>
     <form  method="POST" action="tt_connexion.php">
+        
         <div class="container">
             <div class="row my-3">
                 <div class="row">
@@ -25,8 +26,6 @@ session_start();
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control " id="email" name="email" placeholder="Votre email..." required>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-md-6">
                         <label for="password" class="form-label">Mot de passe</label>
                         <input type="password" class="form-control " id="password" name="password" placeholder="Votre mot de passe..." required>
@@ -37,8 +36,10 @@ session_start();
                 </div>
             </div>
         </div>
+        
     </form>
 </div>
 <?php
     include 'footer.inc.php';
+  
 ?>

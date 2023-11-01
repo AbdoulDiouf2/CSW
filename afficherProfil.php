@@ -13,6 +13,7 @@
   <thead>
     <tr>
       <th scope="col">Nom</th>
+<<<<<<< HEAD
 
     </tr>
   </thead>
@@ -21,6 +22,16 @@
   <?php
 require_once("tt_connexion.php");
 $mysqli = mysqli_connect("localhost","root","root","tp");
+=======
+      
+    </tr>
+  </thead>
+  <tbody>
+  
+  <?php
+require_once("tt_connexion.php");
+$mysqli = mysqli_connect("localhost","root","","tp");
+>>>>>>> e075bc3bfd6dc18536d7af53d4e020db99a292b8
 /*
 // Connexion :
 require_once("param.inc.php");
@@ -38,9 +49,15 @@ $requeteSelect3 = $mysqli->prepare("SELECT nom_util FROM utilisateur WHERE mail_
     $requeteSelect3->fetch();
     $requeteSelect3->close();
     echo '<tr>';     
+<<<<<<< HEAD
 
     echo'<td>'.$row['nom_util'].'</td>';
 
+=======
+    
+    echo'<td>'.$row['nom_util'].'</td>';
+  
+>>>>>>> e075bc3bfd6dc18536d7af53d4e020db99a292b8
     echo '</tr>';
 ?>
 
@@ -52,4 +69,8 @@ $requeteSelect3 = $mysqli->prepare("SELECT nom_util FROM utilisateur WHERE mail_
 </div>
 <?php
     include 'footer.inc.php';
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> e075bc3bfd6dc18536d7af53d4e020db99a292b8

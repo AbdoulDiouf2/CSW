@@ -16,6 +16,7 @@
 <?php
     
 
+<<<<<<< HEAD
     if(isset($_SESSION['message'])) {
         echo '<div class="alert alert-primary alert-dismissible fade show" role="alert">';
         echo $_SESSION['message'];
@@ -25,6 +26,9 @@
     }
     ?>
 <br><br><br><br>
+=======
+
+>>>>>>> e075bc3bfd6dc18536d7af53d4e020db99a292b8
 <table class="table">
   <thead>
     <tr>
@@ -39,7 +43,8 @@
   <tbody>
   
   <?php
-$mysqli = mysqli_connect("localhost","root","root","tp");
+  require_once("param.inc.php");
+$mysqli = mysqli_connect("localhost","root",$passwd,"tp");
 /*
 
 // Connexion :
@@ -79,7 +84,7 @@ $i++;
 
 
 
-<br><br><br><br>
+
 
 </div>
 <?php
