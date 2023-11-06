@@ -21,11 +21,29 @@
         <input class="form-control me-2 bg-danger" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" style="--bs-bg-opacity: .5;" type="submit">Search</button>
       </form>
+      <style>
+        .btn-outline-success {
+          --bs-btn-color: #f8f9fa;
+          --bs-btn-border-color: #dc3545;
+          --bs-btn-hover-color: #fff;
+          --bs-btn-hover-bg: #e02537;
+          --bs-btn-hover-border-color: #dc3545;
+          --bs-btn-focus-shadow-rgb: 25,135,84;
+          --bs-btn-active-color: #fff;
+          --bs-btn-active-bg: #dc3545;
+          --bs-btn-active-border-color: #dc3545;
+          --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+          --bs-btn-disabled-color: #dc3545;
+          --bs-btn-disabled-bg: transparent;
+          --bs-btn-disabled-border-color: #dc3545;
+          --bs-gradient: none;
+        }
+      </style>
     
 
       <ul class="navbar-nav mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link"  href="aboutus.php">A Propos</a>
+          <a class="nav-link active"  href="aboutus.php">A Propos</a>
         </li>
         <?php
         if ((isset($_SESSION['PROFILE'])))
@@ -42,12 +60,12 @@
       if(!(isset($_SESSION['PROFILE'])))
       {
         echo'<ul class="navbar-nav mb-lg-o">
-        <li class="nav-item">
-          <a class="nav-link" href="inscription.php">Inscription</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="connexion.php">Connexion</a>
-            </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="inscription.php">Inscription</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active btn btn-danger" href="connexion.php">Connexion</a>
+              </li>
             </ul>';
 
       }

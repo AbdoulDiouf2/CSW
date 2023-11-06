@@ -81,5 +81,5 @@ $i++;
 
 </div>
 <?php
-    include 'footer.inc.php';
+    include 'footer.admin.php';
 ?>

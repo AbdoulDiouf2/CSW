@@ -2,5 +2,5 @@
 session_start();
 session_destroy();
 unset($_SESSION['isAdmin']);
-header("location:index.php");
+header("location:connexion.php");
 ?>

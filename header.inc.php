@@ -9,4 +9,5 @@
     <link rel="stylesheet" href="style.css" class="href">
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body class="homepage-container">
+    
