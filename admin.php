@@ -39,12 +39,13 @@
   <tbody>
   
   <?php
-$mysqli = mysqli_connect("localhost","root","root","tp");
+require_once("param.inc.php");
+$mysqli = mysqli_connect("localhost","root",$passwd,"tp");
 /*
 
 // Connexion :
 require_once("param.inc.php");
-$mysqli = new mysqli($host, $login, $passwd, $dbname);
+$mysqli = new mysqli($host, $login, , $dbname);
 if ($mysqli->connect_error) {
     die('Erreur de connexion (' . $mysqli->connect_errno . ') '
             . $mysqli->connect_error);

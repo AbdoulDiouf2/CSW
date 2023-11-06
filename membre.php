@@ -34,7 +34,8 @@
   <tbody>
   
   <?php
-$mysqli = mysqli_connect("localhost","root","root","tp");
+require_once("param.inc.php");
+$mysqli = mysqli_connect("localhost","root",$passwd,"tp");
 /*
 
 // Connexion :

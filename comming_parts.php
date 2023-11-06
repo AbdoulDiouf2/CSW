@@ -24,7 +24,8 @@
   <tbody>
   
     <?php
-        $mysqli = mysqli_connect("localhost","root","root","tp");
+        require_once("param.inc.php");
+        $mysqli = mysqli_connect("localhost","root",$passwd,"tp");
         
         $i=1;
         if ($stmt = $mysqli->prepare("SELECT jeu.nom_jeu, historiquejeu.date_jeu, jeu.categorie_jeu, jeu.photo_jeu, jeu.regle_jeu FROM historiquejeu JOIN jeu ON historiquejeu.id_jeu = jeu.id_jeu WHERE 1")) 

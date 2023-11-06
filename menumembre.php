@@ -15,13 +15,13 @@
             <a class="nav-link" href="liste_jeux_membre.php">Tous les Jeux disponibles</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="comming_parts.php">Partie à venir</a>
+            <a class="nav-link" href="liste_jeux_membre.php">Partie à venir</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="historique_jeu.php">Historique des jeux joués</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Mon profil</a>
+            <a class="nav-link" href="page_profil_Membre.php">Mon profil</a>
           </li>
           </ul>
       
