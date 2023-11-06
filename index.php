@@ -106,6 +106,26 @@
     <div class="container">
         <div class="row my-3">
             <div class="row">
+                <div class="col-md-12 text-center" style="width: 100%; height: auto; color: black; font-size: 60px; font-family: Handlee; font-weight: 400; word-wrap: break-word">
+                    <span style="color: #FF6666; font-size: 50px; font-family: Handlee; font-weight: 400; word-wrap: break-word">
+                        Présentation of Board Games !!!
+                    </span>
+                </div>
+                <div class="col-md-12 ratio ratio-21x9">
+                    <iframe
+                        src="videos/jeu_de_plateau_V1.mp4"
+                        title="Board Games"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
+    <div class="container">
+        <div class="row my-3">
+            <div class="row">
                 <div class="col-md-12 text-center" style="width: 100%; height: auto; color: black; font-size: 55px; font-family: Handlee; font-weight: 400; word-wrap: break-word">
                     Notre site est conçu pour rassembler les membres<br/>
                     de l’association de jeux Esigelec, ainsi que tous les<br/>
