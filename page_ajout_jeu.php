@@ -18,6 +18,32 @@
 
 <div class="container">
 
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="admin.php">Accueil</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"  href="list.php">Liste Utilisateur</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="Gestion_des_jeux.php">Gestion des jeux</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled active" aria-current="page" aria-disabled="true">Ajout de jeu</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"  href="page_ajout_date.php">Proposition Date</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="listCreneaux.php">Gestion Créneaux</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="page_ProfilAdmin.php">Mon Profil</a>
+  </li>  
+
+</ul>
+<br><br>
+
 <form  method="POST" action="Ajouter_un_jeu.php">
     <div class="container">
     <div class="row my-3">

@@ -9,6 +9,9 @@
       exit();
   }
 ?>
+<div style="width: 200px; height: 100px; margin : auto;">
+
+</div>
 
 <div class="container">
 
@@ -24,7 +27,34 @@
         unset($_SESSION['message']);
     }
     ?>
-<br><br><br><br>
+    
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active disabled" aria-disabled="true" aria-current="page" >Accueil</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="list.php">Liste Utilisateur</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="Gestion_des_jeux.php">Gestion des jeux</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="page_ajout_date.php">Proposition Date</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="listCreneaux.php">Gestion Créneaux</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="page_ProfilAdmin.php">Mon Profil</a>
+  </li>  
+<!--  
+  <li class="nav-item">
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+  </li>
+  -->
+</ul>
+<br><br>
+
 <table class="table">
   <thead>
     <tr>

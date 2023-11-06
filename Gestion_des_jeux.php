@@ -13,14 +13,42 @@
 
 </div>
 
-<div style="width: 200px; height: 100px; margin : auto;">
-<a class="btn btn-primary" href="page_ajout_jeu.php" role="button">Ajouter un jeu</a> 
-</div>
+
+
+
 
 <div class="container">
 
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link"  href="admin.php">Accueil</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="list.php">Liste Utilisateur</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active disabled" aria-disabled="true" aria-current="page">Gestion des jeux</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="page_ajout_date.php">Proposition Date</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="listCreneaux.php">Gestion Créneaux</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="page_ProfilAdmin.php">Mon Profil</a>
+  </li>  
+<!--  
+  <li class="nav-item">
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+  </li>
+  -->
+</ul>
+<br><br>
 
-
+<div style="width: 200px; height: 100px; margin : auto;">
+<a class="btn btn-primary" href="page_ajout_jeu.php" role="button">Ajouter un jeu</a> 
+</div>
 <table class="table">
   <thead>
     <tr>

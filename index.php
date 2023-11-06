@@ -112,12 +112,12 @@
                     </span>
                 </div>
                 <div class="col-md-12 ratio ratio-21x9">
-                    <iframe
-                        src="videos/jeu_de_plateau_V1.mp4"
-                        title="Board Games"
-                        allowfullscreen
-                    ></iframe>
+                    <video controls>
+                        <source src="videos/jeu_de_plateau_V1.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la lecture de vidéos au format MP4.
+                    </video>
                 </div>
+
             </div>
         </div>
     </div>
