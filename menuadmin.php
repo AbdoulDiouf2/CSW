@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
+<nav class="navbar navbar-expand-md border-body custom-bg-admin" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="admin.php">Admin</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,3 +38,8 @@
     </div>
   </div>
 </nav>
+<style>
+  .custom-bg-admin {
+    background-color: #ff6666;
+  }
+</style>

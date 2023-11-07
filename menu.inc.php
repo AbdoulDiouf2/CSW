@@ -12,9 +12,11 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
         </li>
+<!--
         <li class="nav-item">
           <a class="nav-link" href="page.php">Une page</a>
         </li>
+-->
       </ul>
       
       <form class="d-flex" role="search">
@@ -43,7 +45,7 @@
 
       <ul class="navbar-nav mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active"  href="aboutus.php">A Propos</a>
+          <a class="nav-link active"  href="contactus.php">Contactez Nous</a>
         </li>
         <?php
         if ((isset($_SESSION['PROFILE'])))

@@ -47,7 +47,7 @@
 <br><br>
 
 <div style="width: 200px; height: 100px; margin : auto;">
-<a class="btn btn-primary" href="page_ajout_jeu.php" role="button">Ajouter un jeu</a> 
+<a class="btn btn-danger" href="page_ajout_jeu.php" role="button">Ajouter un jeu</a> 
 </div>
 <table class="table">
   <thead>

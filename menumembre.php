@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
+<nav class="navbar navbar-expand-md border-body custom-bg-membre" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="membre.php">Membre</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,3 +35,8 @@
     </div>
   </div>
 </nav>
+<style>
+  .custom-bg-membre {
+    background-color: #ff6666;
+  }
+</style>

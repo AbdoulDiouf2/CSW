@@ -27,8 +27,8 @@ session_start();
 </style>
 
 <div class="container">
-    <br>
-    <h1>Connexion</h1>
+    <br><br>
+    <h1 style="color: #FF6666;">Connexion</h1>
     <?php
         if(isset($_SESSION['message'])) {
             echo '<div class="alert alert-primary alert-dismissible fade show" role="alert">';
@@ -48,7 +48,7 @@ session_start();
                         <input type="email" class="form-control " id="email" name="email" placeholder="Votre email..." required>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row my-3">
                     <div class="col-md-6">
                         <label for="password" class="form-label">Mot de passe</label>
                         <input type="password" class="form-control " id="password" name="password" placeholder="Votre mot de passe..." required>
@@ -60,6 +60,7 @@ session_start();
             </div>
         </div>
     </form>
+    <br>
 </div>
 <?php
     include 'footer.inc.php';

@@ -42,7 +42,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isA
 <br><br>
 
 <div style="width: 200px; height: 100px; margin : auto;">
-    <a class="btn btn-primary" href="page_ajout_admin.php" role="button">Ajouter un profil Administrateur</a>
+    <a class="btn btn-danger" href="page_ajout_admin.php" role="button">Ajouter un profil Administrateur</a>
 
 </div>
     <h1>Informations Admin</h1> <!-- Le texte au-dessus de la première liste -->

@@ -67,7 +67,7 @@
         </div>
         </div>
         <div class="row my-3">
-        <div class="d-grid gap-2 d-md-block"><button class="btn btn-outline-primary" type="submit">Inscription</button></div>   
+        <div class="d-grid gap-2 d-md-block"><button class="btn btn-outline-danger" type="submit">Inscription</button></div>   
         </div>
     </div>
 </form>

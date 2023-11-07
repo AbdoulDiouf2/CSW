@@ -70,7 +70,7 @@
 
         </div>
             <div style="width: 200px; height: 100px; margin : auto;">
-                <div class="d-grid gap-2 d-md-block"><button class="btn btn-outline-primary" type="submit">Ajouter une date de jeu</button></div>   
+                <div class="d-grid gap-2 d-md-block"><button class="btn btn-outline-danger" type="submit">Ajouter une date de jeu</button></div>   
             </div>
         
     </div>

@@ -5,73 +5,31 @@
       <!-- Section: Social media -->
       <section class="mb-4">
         <!-- Facebook -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/abdouahat.diouf" role="button">
           <i class="fab fa-facebook-f"></i>
         </a>
 
         <!-- Twitter -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        <a class="btn btn-outline-light btn-floating m-1" href="https://x.com/abdoul_ahad691?t=VowwkHYTxoBzit9yidXOjg&s=09" role="button"
           ><i class="fab fa-twitter"></i
         ></a>
 
-        <!-- Google -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-google"></i
-        ></a>
-
         <!-- Instagram -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        <a class="btn btn-outline-light btn-floating m-1" href="https://instagram.com/abdoul_ahad_691?igshid=MWw5bm41bmh2a3VhZA==" role="button"
           ><i class="fab fa-instagram"></i
         ></a>
 
         <!-- Linkedin -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        <a class="btn btn-outline-light btn-floating m-1" href="www.linkedin.com/in/abdoul-ahad-mbacké-diouf-5b04b4213" role="button"
           ><i class="fab fa-linkedin-in"></i
         ></a>
 
         <!-- Github -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/AbdoulDiouf2/CSW" role="button"
           ><i class="fab fa-github"></i
         ></a>
       </section>
       <!-- Section: Social media -->
-
-      <!-- Section: Form -->
-      <section class="">
-        <form action="">
-          <!--Grid row-->
-          <div class="row d-flex justify-content-center">
-            <!--Grid column-->
-            <div class="col-auto">
-              <p class="pt-2">
-                <strong>Sign up for our newsletter</strong>
-              </p>
-            </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-md-5 col-12">
-              <!-- Email input -->
-              <div class="form-outline form-white mb-4">
-                <input type="email" id="form5Example21" class="form-control" />
-                <label class="form-label" for="form5Example21">Email address</label>
-              </div>
-            </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-auto">
-              <!-- Submit button -->
-              <button type="submit" class="btn btn-outline-light mb-4">
-                Subscribe
-              </button>
-            </div>
-            <!--Grid column-->
-          </div>
-          <!--Grid row-->
-        </form>
-      </section>
-      <!-- Section: Form -->
 
       <!-- Section: Links -->
       <section class="">
@@ -94,14 +52,14 @@
 
           <!--Grid column-->
           <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Links</h5>
+            <h5 class="text-uppercase">Devenir membre ou Se connecter</h5>
 
             <ul class="list-unstyled mb-0">
               <li>
-                <a href="#!" class="text-white">Link 1</a>
+                <a href="inscription.php" class="text-white">Inscription</a>
               </li>
               <li>
-                <a href="#!" class="text-white">Link 2</a>
+                <a href="connexion.php" class="text-white">Connexion</a>
               </li>
             </ul>
           </div>
@@ -117,7 +75,7 @@
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
       © 2020 Copyright:
-      <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+      <a class="text-white" href="https://www.esigelec.fr/fr">esigplay.com</a>
     </div>
     <!-- Copyright -->
   </footer>

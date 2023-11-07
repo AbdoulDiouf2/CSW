@@ -4,8 +4,34 @@
     include 'header.inc.php';
     include 'menumembre.php';
 ?>
+<div style="width: 200px; height: 100px; margin : auto;">
+
+</div>
 <div class="container">
-<h1>Contenu</h1>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="membre.php" >Accueil</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active disabled" aria-disabled="true" aria-current="page">Liste des jeux disponibles</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="comming_parts.php">Partie à venir</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="historique_jeu.php">Historique des jeux joués</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="page_profil_Membre.php">Mon Profil</a>
+  </li>  
+<!--  
+  <li class="nav-item">
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+  </li>
+  -->
+</ul>
+<br><br>
 
 
 
@@ -92,5 +118,5 @@ $i++;
 
 </div>
 <?php
-    include 'footer.inc.php';
+    include 'footer.admin.php';
 ?>
