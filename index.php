@@ -168,7 +168,7 @@
                             . $mysqli->connect_error);
                 }
 
-                if ($stmt = $mysqli->prepare("SELECT nom_jeu, photo_jeu FROM jeu WHERE 1")) 
+                if ($stmt = $mysqli->prepare("SELECT nom_jeu, photo_jeu FROM jeu LIMIT 3")) 
                 {
                     $stmt->execute();
                     $result = $stmt->get_result();   
@@ -176,7 +176,7 @@
                     {     
                         echo '<tr>';     
                         echo'<td>'.$row['nom_jeu'].'</td>';
-                        echo'<td>'.$row['photo_jeu'].'</td>';
+                        echo '<td><img src="images/'.$row['photo_jeu'].'" width="200px" height="200px"></td>';
                         echo '</tr>';
                     }
                 }
@@ -184,7 +184,18 @@
             </tbody>
         </table>
     </div>
-    
+    <style>
+        .table>:not(caption)>*>* {
+            padding: 0.5rem 0.5rem;
+            color: var(--bs-table-color-state,var(--bs-table-color-type,var(--bs-table-color)));
+            background-color: rgba(0, 0, 0, 0);
+            border-bottom-width: var(--bs-border-width);
+            box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state,var(--bs-table-bg-type,var(--bs-table-accent-bg)));
+        }
+        td {
+            font-size: 50px;
+        }
+    </style>
 <hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
     <div class="container">
         <div class="row my-3">

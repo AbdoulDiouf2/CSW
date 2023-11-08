@@ -1,5 +1,5 @@
 <?php
-$email=$_GET['email'];
+$jeu=$_GET['jeu'];
 // Connexion :
 require_once("param.inc.php");
 $mysqli = new mysqli($host, $login, $passwd, $dbname);
@@ -8,19 +8,16 @@ if ($mysqli->connect_error) {
             . $mysqli->connect_error);
 }
 
-if ($stmt = $mysqli->prepare("DELETE FROM utilisateur WHERE mail_util=? limit 1")) 
+if ($stmt = $mysqli->prepare("DELETE FROM jeu WHERE nom_jeu=? limit 1")) 
 {
  
-  $stmt->bind_param("s", $email);
+  $stmt->bind_param("s", $jeu);
   if ($stmt->execute()) {
-    header("location:list.php");
+    header("location:Gestion_des_jeux.php");
     $_SESSION['message'] = "Suppression réussie";
   } else {
     $_SESSION['message'] = "Impossible de supprimer : " . $stmt->error;
   }
 }
-
-
-header("location:list.php")
 
 ?>

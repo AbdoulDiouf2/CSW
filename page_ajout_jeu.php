@@ -44,7 +44,7 @@
 </ul>
 <br><br>
 
-<form  method="POST" action="Ajouter_un_jeu.php">
+<form  method="POST" action="Ajouter_un_jeu.php" enctype="multipart/form-data">
     <div class="container">
     <div class="row my-3">
         <div class="col-md-6">
@@ -52,8 +52,10 @@
             <input type="text" class="form-control " id="nom" name="nom" placeholder="le nom du jeu..." required>
         </div>
         <div class="col-md-6">
-            <label for="photo" class="form-label">photo (text)</label>
-            <input type="text" class="form-control " id="photo" name="photo" placeholder="la photo du jeu..." required>
+            <label for="photo" class="form-label">Ajout d'une photo</label>
+<!--            <input type="text" class="form-control " id="photo" name="photo" placeholder="la photo du jeu..." required>  -->
+            <input type="file" name="userfile" id="photo" class="form-control" />
+            
         </div>
         </div>
         <div class="row">
@@ -74,7 +76,7 @@
 
         </div>
         <div style="width: 200px; height: 100px; margin : auto;">
-        <div class="d-grid gap-2 d-md-block"><button class="btn btn-outline-primary" type="submit">Ajouter un jeu</button></div>   
+        <div class="d-grid gap-2 d-md-block"><button class="btn btn-outline-danger" type="submit">Ajouter un jeu</button></div>   
         </div>
         
     </div>

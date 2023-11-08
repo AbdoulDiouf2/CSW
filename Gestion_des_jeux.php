@@ -88,9 +88,10 @@ if ($stmt = $mysqli->prepare("SELECT nom_jeu, desc_jeu, categorie_jeu, photo_jeu
     echo  '<th scope="row">'.$i.'</th>';
     echo'<td>'.$row['categorie_jeu'].'</td>';
     echo'<td>'.$row['nom_jeu'].'</td>';
-    echo'<td>'.$row['photo_jeu'].'</td>';
+    echo '<td><img src="images/'.$row['photo_jeu'].'" width="200px" height="200px"></td>';
     echo'<td>'.$row['desc_jeu'].'</td>';
     echo'<td>'.$row['regle_jeu'].'</td>';
+    echo'<td><a class="btn btn-danger" href="delete_jeu.php?jeu='.$row['nom_jeu'].'" role="button">Delete</a></td>';
     echo '</tr>';
 $i++;   
 }
