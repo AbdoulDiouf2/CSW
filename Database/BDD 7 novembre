@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 07, 2023 at 09:55 PM
+-- Generation Time: Nov 08, 2023 at 12:43 AM
 -- Server version: 5.6.20-log
 -- PHP Version: 5.5.15
 
@@ -56,16 +56,20 @@ CREATE TABLE IF NOT EXISTS `jeu` (
   `categorie_jeu` varchar(30) NOT NULL,
   `regle_jeu` varchar(500) NOT NULL,
   `photo_jeu` varchar(50) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `jeu`
 --
 
 INSERT INTO `jeu` (`id_jeu`, `nom_jeu`, `desc_jeu`, `categorie_jeu`, `regle_jeu`, `photo_jeu`) VALUES
-(1, 'Donjon&Dragon', 'jeu de rôle blabla', 'jeu de rôle', 'blabla', 'blabla'),
-(2, 'LOL', 'jeu 5 contre 5 etc.', 'MOBA', 'blabla', 'photo'),
-(3, 'Fifa', 'fifa', 'sport', 'foot', 'fifa');
+(4, 'Scrabble', 'description du jeu', 'Jeu de plateau', 'r&egrave;gle du jeu', 'scrabble.jpeg'),
+(5, 'Catan', 'Petite description', 'Jeu de plateau', 'r&egrave;gle du jeu', 'catan.jpeg'),
+(6, 'Ludo king', 'Petite description', 'Jeu de plateau', 'r&egrave;gle du jeu', 'gettyimages-ludo.jpg'),
+(7, 'Ticket to ride', 'Petite description', 'Jeu de plateau', 'r&egrave;gle du jeu', 'ticket_to_ride.jpeg'),
+(8, 'Echet et mat', 'Petite description', 'Jeu de plateau', 'r&egrave;gle du jeu', 'echec.jpeg'),
+(9, 'Monopoly', 'Petite description', 'Jeu de plateau', 'r&egrave;gle du jeu', 'monopoly.jpeg'),
+(10, 'Jeu Damier', 'Petite description', 'Jeu de plateau', 'r&egrave;gle du jeu', 'damier.jpeg');
 
 -- --------------------------------------------------------
 
@@ -110,8 +114,6 @@ INSERT INTO `utilisateur` (`nom_util`, `prenom_util`, `mail_util`, `mdp_util`, `
 ('deslandes', 'valentin', 'val@gmail.com', '$2y$12$H8.pX4w25mb7MlnuC4AgnelL91zgjF4FsNEW2PUusr8hT3N.yhXuG', 2, 0),
 ('admin', 'admin', 'admin@gmail.com', '$2y$12$TTw7.haG08c82t3RucB7LuQY51gxs.q94ZF9HthX16mz15zkSpnDq', 1, 2),
 ('admin2', 'admin2', 'admin2@gmail.com', '$2y$12$iOAxq5XcxlGbNAu59j1JZORkPJMwxbDlzr5bVxVyFArdwqoQAhd9.', 1, 3),
-('DIOUF', 'Abdoul Ahad Mbacke', 'ahad@gmail.com', '$2y$12$oqNgi58yC9Hdgf6Br3/35.4Te4DyJ5WK0/ne9tI5/Xxkbysk1UX5m', 2, 4),
-('Diouf', 'Abdoul', 'aamd@gmail.com', '1234', 1, 5),
 ('DIOUF', 'Abdoul Ahad Mbacke', 'abdoul@gmail.com', '$2y$12$GyAFUWMBWYLm/T6RREI0CO3.9ytpQpVnVMr7rOHWi0qAl7Bf5xnxG', 1, 6);
 
 --
@@ -155,7 +157,7 @@ MODIFY `id_CreaJeu` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT for table `jeu`
 --
 ALTER TABLE `jeu`
-MODIFY `id_jeu` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id_jeu` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `utilisateur`
 --
