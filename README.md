@@ -3,14 +3,14 @@
 # You'll see down below, the usernames and passwords of members and administrators
 # who are in our database.
 # ***************************************************
-# First identifiant (admin): 
+# First identifiant (membre): 
 # NU: val@gmail.com
 # MDP: 1234
 # ***************************************************
-# Second identifiant (membre) : 
-# NU: abdoul@gmail.com
+# Second identifiant (admin) : 
+# NU: admin@gmail.com
 # MDP: 1234
 # ***************************************************
 # Third identifiant (admin) : 
-# NU: ahad@gmail.com
+# NU: admin2@gmail.com
 # MDP: 1234
