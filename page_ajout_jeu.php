@@ -46,38 +46,49 @@
 
 <form  method="POST" action="Ajouter_un_jeu.php" enctype="multipart/form-data">
     <div class="container">
-    <div class="row my-3">
-        <div class="col-md-6">
+
+      <div class="row my-3">
+        <div class="col-md-4">
+          <label for="categorie" class="form-label">Categorie</label>
+          <input type="text" class="form-control " id="categorie" name="categorie" placeholder="categorie du jeu..." required>
+        </div>
+      </div>
+
+      <div class="row my-3">
+        <div class="col-md-4">
             <label for="nom" class="form-label">Nom du jeu</label>
             <input type="text" class="form-control " id="nom" name="nom" placeholder="le nom du jeu..." required>
         </div>
-        <div class="col-md-6">
-            <label for="photo" class="form-label">Ajout d'une photo</label>
-<!--            <input type="text" class="form-control " id="photo" name="photo" placeholder="la photo du jeu..." required>  -->
-            <input type="file" name="userfile" id="photo" class="form-control" />
-            
-        </div>
-        </div>
-        <div class="row">
+      </div>
+      
+      <div class="row my-3">
         <div class="col-md-4">
             <label for="description" class="form-label">Description du jeu</label>
-            <input type="text" class="form-control " id="description" name="description" placeholder="la description du jeu..." required>
+            <textarea type="text" id="description" name="description" rows="6" class="form-control md-textarea"></textarea>
         </div>
-        <div class="col-md-4">
-            <label for="categorie" class="form-label">Categorie</label>
-            <input type="text" class="form-control " id="categorie" name="categorie" placeholder="categorie du jeu..." required>
-        </div>
-        <div class="col-md-4">
-            <label for="regle" class="form-label">Regle</label>
-            <input type="text" class="form-control " id="regle" name="regle" placeholder="regle du jeu..." required>
-        </div>
-        </div>
-        <div style="width: 200px; height: 100px; margin : auto;">
+      </div>
 
+      <div class="row my-3">
+        <div class="col-md-4">
+            <label for="photo" class="form-label">Ajout d'une photo</label>
+            <input type="file" name="userfile" id="photo" class="form-control" />            
         </div>
-        <div style="width: 200px; height: 100px; margin : auto;">
-        <div class="d-grid gap-2 d-md-block"><button class="btn btn-outline-danger" type="submit">Ajouter un jeu</button></div>   
+      </div>
+      
+      <div class="row my-3">
+        <div class="col-md-4">
+          <label for="regle" class="form-label">Regle</label>
+          <input type="text" class="form-control " id="regle" name="regle" placeholder="regle du jeu..." required>
         </div>
+      </div>
+
+      <div style="width: 200px; height: 100px; margin : auto;">
+        <div class="d-grid gap-2 d-md-block">
+          <button class="btn btn-outline-danger" type="submit">
+            Ajouter un jeu
+          </button>
+        </div>   
+      </div>
         
     </div>
 </form>
