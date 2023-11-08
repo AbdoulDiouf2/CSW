@@ -4,37 +4,8 @@
     include 'header.inc.php';
     include 'menuadmin.php';
 ?>
-<div style="width: 200px; height: 100px; margin : auto;">
-
-</div>
 <div class="container">
-
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link" href="admin.php">Accueil</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="list.php">Liste Utilisateur</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="Gestion_des_jeux.php">Gestion des jeux</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link"  href="page_ajout_date.php">Proposition Date</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active disabled" aria-disabled="true" aria-current="page">Gestion Créneaux</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="page_ProfilAdmin.php">Mon Profil</a>
-  </li>  
-<!--  
-  <li class="nav-item">
-    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-  </li>
-  -->
-</ul>
-<br><br>
+<h1>Contenu</h1>
 
 
 
@@ -90,13 +61,15 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE 1"))
     {
     echo'<td><a class="btn btn-danger" href="renouveler_partie.php?id_CreaJeu='.$i.'" role="button">Renouveler la partie</a></td>';
     }
-    if($row['joueur_inscris'] == 0) {
+    /*
+    if($row['Partie_terminee'] == 0) {
     echo'<td><a class="btn btn-danger" href="terminer_partie.php?id_CreaJeu='.$i.'" role="button">Terminer la partie</a></td>';
     }
-    else if($row['joueur_inscris'] == 1)
+    else if($row['Partie_terminee'] == 1)
     {
     echo'<td><a class="btn btn-danger" href="renouveler_partie.php?id_CreaJeu='.$i.'" role="button">Renouveler la partie</a></td>';
     }
+    */
     echo '</tr>';
 $i++;   
 }
@@ -110,5 +83,5 @@ $i++;
 
 </div>
 <?php
-    include 'footer.admin.php';
+    include 'footer.inc.php';
 ?>
