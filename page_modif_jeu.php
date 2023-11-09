@@ -72,7 +72,7 @@
                 echo '<td>' . $row['nom_jeu'] . '</td>';
                 echo '<td>' . $row['desc_jeu'] . '</td>';
                 echo '<td><img src="images/'.$row['photo_jeu'].'" width="200px" height="200px"></td>';
-                echo '<td>'.$row['regle_jeu'].'</td>';
+                echo '<td><a href="regle_de_jeu/'.$row['regle_jeu'].'" >Règle de jeu</a></td>';
                 echo '</tr>';
             }
             ?>
@@ -114,7 +114,7 @@
       <div class="row my-3">
         <div class="col-md-4">
           <label for="regle" class="form-label">Regle</label>
-          <input type="text" class="form-control " id="regle" name="regle" placeholder="regle du jeu..." required>
+          <input type="file" name="userpdf" id="pdf" class="form-control" required>
         </div>
       </div>
 

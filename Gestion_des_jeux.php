@@ -90,7 +90,7 @@ if ($stmt = $mysqli->prepare("SELECT nom_jeu, desc_jeu, categorie_jeu, photo_jeu
     echo '<td>'.$row['nom_jeu'].'</td>';
     echo '<td><img src="images/'.$row['photo_jeu'].'" width="200px" height="200px"></td>';
     echo '<td>'.$row['desc_jeu'].'</td>';
-    echo '<td>'.$row['regle_jeu'].'</td>';
+    echo '<td><a href="regle_de_jeu/'.$row['regle_jeu'].'" >Règle de jeu</a></td>';
     echo '<td><a class="btn btn-danger" href="page_modif_jeu.php?modif='.$row['nom_jeu'].'" role="button">Modifier</a></td>';
     echo '<td><a class="btn btn-danger" href="delete_jeu.php?jeu='.$row['nom_jeu'].'" role="button">Delete</a></td>';
     echo '</tr>';

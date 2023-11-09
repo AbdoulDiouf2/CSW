@@ -15,8 +15,18 @@
 
 
 
-
 <div class="container">
+<?php
+    
+
+    if(isset($_SESSION['message'])) {
+        echo '<div class="alert alert-primary alert-dismissible fade show" role="alert">';
+        echo $_SESSION['message'];
+        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+        echo '</div>';
+        unset($_SESSION['message']);
+    }
+    ?>
 
 <ul class="nav nav-tabs">
   <li class="nav-item">
@@ -71,14 +81,15 @@
       <div class="row my-3">
         <div class="col-md-4">
             <label for="photo" class="form-label">Ajout d'une photo</label>
-            <input type="file" name="userfile" id="photo" class="form-control" />            
+            <input type="file" name="userfile" id="photo" class="form-control" required>            
         </div>
       </div>
       
       <div class="row my-3">
         <div class="col-md-4">
           <label for="regle" class="form-label">Regle</label>
-          <input type="text" class="form-control " id="regle" name="regle" placeholder="regle du jeu..." required>
+<!--          <input type="text" class="form-control " id="regle" name="regle" placeholder="regle du jeu..." required> -->
+          <input type="file" name="userpdf" id="pdf" class="form-control" required>
         </div>
       </div>
 
