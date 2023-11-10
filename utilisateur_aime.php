@@ -1,5 +1,6 @@
 <?php
 session_start();
+$idJeu=$_GET['id_Jeu'];
 // Connexion :
 require_once("param.inc.php");
 $mysqli = new mysqli($host, $login, $passwd, "tp");
@@ -11,14 +12,14 @@ $stmt = $mysqli->prepare("SELECT id_util FROM utilisateur WHERE mail_util = ?");
 $stmt->bind_param("s", $_SESSION['email']);
 $stmt->execute();
 $id_util = $stmt->get_result();
-$row = $id_util->fetch_assoc();
-$idCreaJeu=$_GET['id_CreaJeu'];
 
 
-    if ($stmt = $mysqli->prepare("UPDATE joueurjeu SET joueur_aimant = '1' WHERE id_jeu=? AND id_util=? limit 1")) 
+
+
+    if ($stmt = $mysqli->prepare("UPDATE joueurjeu SET joueur_aimant = '1' WHERE id_jeu= ? AND id_util=? ")) 
     {
 
-    $stmt->bind_param("ii", $idCreaJeu, $id_util);
+    $stmt->bind_param("ii", $idJeu, $id_util);
     $stmt->execute();
     }
 

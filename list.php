@@ -5,6 +5,11 @@
     $titre = "Administrateur";
     include 'header.inc.php';
     include 'menuadmin.php';
+    if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
+      // Redirigez l'utilisateur vers la page de connexion ou une page d'erreur
+      header("Location: tt_connexion.php"); // Remplacez ceci par l'URL de votre page de connexion
+      exit();
+  }
 ?>
 <div style="width: 200px; height: 100px; margin : auto;">
 

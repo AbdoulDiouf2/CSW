@@ -3,6 +3,11 @@
     $titre = "Administrateur";
     include 'header.inc.php';
     include 'menuadmin.php';
+    if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
+      // Redirigez l'utilisateur vers la page de connexion ou une page d'erreur
+      header("Location: tt_connexion.php"); // Remplacez ceci par l'URL de votre page de connexion
+      exit();
+  }
 ?>
 
 <div style="width: 200px; height: 100px; margin : auto;">
@@ -83,13 +88,13 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE 1"))
     echo  '<th scope="row">'.$i.'</th>';
     echo'<td>'.$nomJeu.'</td>';
     echo'<td>'.$row['date_Jeu'].'</td>';
-    echo'<td><a class="btn btn-danger" href="delete_Date.php?id_CreaJeu='.$i.'" role="button">Delete</a></td>';
+    echo'<td><a class="btn btn-danger" href="delete_Date.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Delete</a></td>';
     if($row['Partie_terminee'] == 0) {
-    echo'<td><a class="btn btn-danger" href="terminer_partie.php?id_CreaJeu='.$i.'" role="button">Terminer la partie</a></td>';
+    echo'<td><a class="btn btn-danger" href="terminer_partie.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Terminer la partie</a></td>';
     }
     else if($row['Partie_terminee'] == 1)
     {
-    echo'<td><a class="btn btn-danger" href="renouveler_partie.php?id_CreaJeu='.$i.'" role="button">Renouveler la partie</a></td>';
+    echo'<td><a class="btn btn-danger" href="renouveler_partie.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Renouveler la partie</a></td>';
     }
     /*
     if($row['Partie_terminee'] == 0) {
