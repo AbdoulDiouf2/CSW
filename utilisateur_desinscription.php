@@ -18,7 +18,7 @@ $idCreaJeu=$_GET['id_CreaJeu'];
     if ($stmt = $mysqli->prepare("DELETE FROM creneaujoueur WHERE id_CreaJeu=? AND id_util =? limit 1")) 
     {
 
-    $stmt->bind_param("ii", $idCreaJeu, $id_util);
+    $stmt->bind_param("ii", $idCreaJeu, $row['id_util']);
     $stmt->execute();
     }
 

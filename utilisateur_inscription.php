@@ -18,7 +18,7 @@ $idCreaJeu=$_GET['id_CreaJeu'];
     if ($stmt = $mysqli->prepare("INSERT INTO creneaujoueur (id_CreaJeu, id_util, joueur_inscris) VALUES (?, ?, 1) ")) 
     {
 
-    $stmt->bind_param("ii", $idCreaJeu, $id_util);
+    $stmt->bind_param("ii", $idCreaJeu, $row['id_util']);
     $stmt->execute();
     }
 

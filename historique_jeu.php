@@ -51,8 +51,33 @@
         $mysqli = new mysqli($host, $login, $passwd, "tp");
         
         $i=1;
-        if ($stmt = $mysqli->prepare("SELECT jeu.nom_jeu, historiquejeu.date_jeu, jeu.categorie_jeu, jeu.photo_jeu, jeu.regle_jeu FROM historiquejeu JOIN jeu ON historiquejeu.id_jeu = jeu.id_jeu WHERE 1")) 
+
+
+        $stmt3 = $mysqli->prepare("SELECT id_util FROM utilisateur WHERE mail_util = ?");
+        $stmt3->bind_param("s", $_SESSION['email']);
+        $stmt3->execute();
+        $result3 = $stmt3->get_result();
+        $row3 = $result3->fetch_assoc();
+
+
+        $stmt2 = $mysqli->prepare("SELECT * FROM creneaujoueur WHERE id_util = ? AND joueur_inscris = 1");
+        $stmt2->bind_param("i", $row3['id_util']);
+        $stmt2->execute();
+        $result2 = $stmt2->get_result(); 
+        $row2 = $result2->fetch_assoc();
+
+
+        $stmt1 = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_CreaJeu = ?");
+        $stmt1->bind_param("i", $row2['id_CreaJeu']);
+        $stmt1->execute();
+        $result1 = $stmt1->get_result(); 
+        while($row1 = $result1->fetch_assoc())
         {
+
+
+        if ($stmt = $mysqli->prepare("SELECT * FROM jeu WHERE id_jeu = ?")) 
+        {
+            $stmt->bind_param("i", $row1['id_jeu']);
             $stmt->execute();
             $result = $stmt->get_result();   
             while($row = $result->fetch_assoc()) 
@@ -60,13 +85,14 @@
                 echo '<tr>';     
                 echo  '<th scope="row">'.$i.'</th>';
                 echo '<td>' . $row['nom_jeu'] . '</td>';
-                echo '<td>' . $row['date_Jeu'] . '</td>';
+                echo '<td>' . $row1['date_Jeu'] . '</td>';
                 echo '<td>' . $row['categorie_jeu'] . '</td>';
                 echo '<td>' . $row['photo_jeu'] . '</td>';
                 echo '<td>' . $row['regle_jeu'] . '</td>';
                 echo '</tr>';
                 $i++;   
             }
+        }
         }
     ?>
 
