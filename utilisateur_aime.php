@@ -11,15 +11,16 @@ if ($mysqli->connect_error) {
 $stmt = $mysqli->prepare("SELECT id_util FROM utilisateur WHERE mail_util = ?");
 $stmt->bind_param("s", $_SESSION['email']);
 $stmt->execute();
-$id_util = $stmt->get_result();
+$result2 = $stmt->get_result();
+$row2 = $result2->fetch_assoc();
 
 
 
 
-    if ($stmt = $mysqli->prepare("UPDATE joueurjeu SET joueur_aimant = '1' WHERE id_jeu= ? AND id_util=? ")) 
+    if ($stmt = $mysqli->prepare("UPDATE joueurjeu SET joueur_aimant = '1' WHERE id_jeu= ? AND id_util=? limit 1")) 
     {
 
-    $stmt->bind_param("ii", $idJeu, $id_util);
+    $stmt->bind_param("ii", $idJeu, $row2['id_util']);
     $stmt->execute();
     }
 

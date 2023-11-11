@@ -45,7 +45,6 @@
                 <th scope="col">Description</th>
                 <th scope="col">Regle</th>
                 <th scope="col">Appreciation</th>
-                <th scope="col">Inscription</th>
             </tr>
         </thead>
         <tbody>
@@ -63,14 +62,13 @@
             
 
             $i = 1;
-            $j = 0;
             if ($stmt = $mysqli->prepare("SELECT nom_jeu, desc_jeu, categorie_jeu, photo_jeu, regle_jeu, id_jeu FROM jeu WHERE 1")) {
                 $stmt->execute();
                 $result = $stmt->get_result();
 
                 while ($row = $result->fetch_assoc()) {
 
-                  $stmt2 = $mysqli->prepare("SELECT joueur_inscris, joueur_aimant FROM joueurjeu WHERE id_util = ? AND id_jeu = ?");
+                  $stmt2 = $mysqli->prepare("SELECT joueur_aimant FROM joueurjeu WHERE id_util = ? AND id_jeu = ?");
                   $stmt2->bind_param("ii", $row1['id_util'], $row['id_jeu']);
                   $stmt2->execute();
                   $result2 = $stmt2->get_result();
@@ -86,18 +84,17 @@
                     if ($row2['joueur_aimant'] == 0) {
                         echo '<td><a class="btn btn-danger" href="utilisateur_aime.php?id_Jeu='.$row['id_jeu'].'" role="button">Like</a></td>';
                     } else if ($row2['joueur_aimant'] == 1) {
-                        echo '<td><a class="btn btn-danger" href="utilisateur_aime_pas.php?id_CreaJeu='.$row['id_jeu'].'" role="button">dislike</a></td>';
+                        echo '<td><a class="btn btn-danger" href="utilisateur_aime_pas.php?id_Jeu='.$row['id_jeu'].'" role="button">dislike</a></td>';
                     }
-
+                    /*
                     if ($row2['joueur_inscris'] == 0) {
                         echo '<td><a class="btn btn-danger" href="utilisateur_inscription.php?id_CreaJeu='.$row['id_jeu'].'" role="button">Inscription</a></td>';
                     } else if ($row2['joueur_inscris'] == 1) {
                         echo '<td><a class="btn btn-danger" href="utilisateur_desinscription.php?id_CreaJeu='.$row['id_jeu'].'" role="button">Desinscription</a></td>';
                     }
-
+                    */
                     echo '</tr>';
                     $i++;
-                    $j++;
                 }
             }
             ?>
