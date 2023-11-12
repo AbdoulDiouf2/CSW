@@ -87,8 +87,8 @@
                 echo '<td>' . $row['nom_jeu'] . '</td>';
                 echo '<td>' . $row1['date_Jeu'] . '</td>';
                 echo '<td>' . $row['categorie_jeu'] . '</td>';
-                echo '<td>' . $row['photo_jeu'] . '</td>';
-                echo '<td>' . $row['regle_jeu'] . '</td>';
+                echo '<td><img src="images/' . $row['photo_jeu'] . '" width="200px" height="200px"></td>';
+                echo '<td><a href="regle_de_jeu/' . $row['regle_jeu'] . '" >Règle de jeu</a></td>';
                 echo '</tr>';
                 $i++;   
             }

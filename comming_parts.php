@@ -97,11 +97,11 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Par
     echo'<td>'.$row['date_Jeu'].'</td>';
     if($result4->num_rows > 0) {
     
-    echo'<td><a class="btn btn-danger" href="utilisateur_desinscription.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Desinscription</a></td>';
+    echo'<td><a class="btn btn-danger confirmation" href="utilisateur_desinscription.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Desinscription</a></td>';
     }
     else 
     {
-    echo'<td><a class="btn btn-danger" href="utilisateur_inscription.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Inscription</a></td>';
+    echo'<td><a class="btn btn-danger confirmation" href="utilisateur_inscription.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Inscription</a></td>';
     }
     
     /*
@@ -120,7 +120,15 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Par
 }
 }
 ?>
-
+<script type="text/javascript">
+    var elems = document.getElementsByClassName('confirmation');
+    var confirmIt = function (e) {
+        if (!confirm('Are you sure?')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
+</script>
 </tbody>
 
 </table>
