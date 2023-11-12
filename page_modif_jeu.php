@@ -120,7 +120,7 @@
 
       <div style="width: 200px; height: 100px; margin : auto;">
         <div class="d-grid gap-2 d-md-block">
-          <button class="btn btn-outline-danger" type="submit" name="modifier">
+          <button class="btn btn-outline-danger confirmation" type="submit" name="modifier">
             Modifier
           </button>
         </div>   
@@ -128,6 +128,15 @@
         
     </div>
 </form>
+<script type="text/javascript">
+    var elems = document.getElementsByClassName('confirmation');
+    var confirmIt = function (e) {
+        if (!confirm('Are you sure?')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
+</script>
 </div>
 
 <?php

@@ -88,13 +88,13 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE 1"))
     echo  '<th scope="row">'.$i.'</th>';
     echo'<td>'.$nomJeu.'</td>';
     echo'<td>'.$row['date_Jeu'].'</td>';
-    echo'<td><a class="btn btn-danger" href="delete_Date.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Delete</a></td>';
+    echo'<td><a class="btn btn-danger confirmation" href="delete_Date.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Delete</a></td>';
     if($row['Partie_terminee'] == 0) {
-    echo'<td><a class="btn btn-danger" href="terminer_partie.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Terminer la partie</a></td>';
+    echo'<td><a class="btn btn-danger confirmation" href="terminer_partie.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Terminer la partie</a></td>';
     }
     else if($row['Partie_terminee'] == 1)
     {
-    echo'<td><a class="btn btn-danger" href="renouveler_partie.php?id_CreaJeu='.$i.'" role="button">Renouveler la partie</a></td>';
+    echo'<td><a class="btn btn-danger confirmation" href="renouveler_partie.php?id_CreaJeu='.$i.'" role="button">Renouveler la partie</a></td>';
     }
     /*
     if($row['Partie_terminee'] == 0) {
@@ -110,7 +110,15 @@ $i++;
 }
 }
 ?>
-
+<script type="text/javascript">
+    var elems = document.getElementsByClassName('confirmation');
+    var confirmIt = function (e) {
+        if (!confirm('Are you sure?')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
+</script>
 </tbody>
 
 </table>

@@ -86,12 +86,22 @@ if ($stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE 1"))
     echo'<td>'.$row['prenom_util'].'</td>';
     echo'<td>'.$row['mail_util'].'</td>';
     echo'<td>'.$row['role_util'].'</td>';
-    echo'<td><a class="btn btn-danger" href="delete.php?email='.$row['mail_util'].'" role="button">Delete</a></td>';
+    echo'<td><a class="btn btn-danger confirmation" href="delete.php?email='.$row['mail_util'].'" role="button">Delete</a></td>';
     echo '</tr>';
 $i++;   
 }
 }
 ?>
+
+<script type="text/javascript">
+    var elems = document.getElementsByClassName('confirmation');
+    var confirmIt = function (e) {
+        if (!confirm('Are you sure?')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
+</script>
 
 </tbody>
 
