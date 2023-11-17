@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $titre = "Administrateur";
+    $titre = "Membre";
     include 'header.inc.php';
     include 'menumembre.php';
     if (!isset($_SESSION['email']) || !isset($_SESSION['isMembre']) || $_SESSION['isMembre'] !== true) {

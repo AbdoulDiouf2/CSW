@@ -77,7 +77,7 @@ if ($mysqli->connect_error) {
 
 
 $i=1;
-if ($stmt = $mysqli->prepare("SELECT nom_jeu, desc_jeu, categorie_jeu, photo_jeu, regle_jeu FROM jeu WHERE 1")) 
+if ($stmt = $mysqli->prepare("SELECT * FROM jeu WHERE 1")) 
 {
  
   $stmt->execute();
@@ -93,6 +93,7 @@ if ($stmt = $mysqli->prepare("SELECT nom_jeu, desc_jeu, categorie_jeu, photo_jeu
     echo '<td><a href="regle_de_jeu/'.$row['regle_jeu'].'" >Règle de jeu</a></td>';
     echo '<td><a class="btn btn-danger" href="page_modif_jeu.php?modif='.$row['nom_jeu'].'" role="button">Modifier</a></td>';
     echo '<td><a class="btn btn-danger confirmation" href="delete_jeu.php?jeu='.$row['nom_jeu'].'" role="button">Delete</a></td>';
+    echo '<td><a class="btn btn-danger " href="liste_aimant.php?id_Jeu='.$row['id_jeu'].'" role="button">Voir les inscris</a></td>';
     echo '</tr>';
 $i++;   
 }

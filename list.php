@@ -54,6 +54,7 @@
       <th scope="col">Email</th>
       <th scope="col">Role</th>
       <th scope="col">Action</th>
+      <th scope="col">Rendre Admin</th>
     </tr>
   </thead>
   <tbody>
@@ -87,6 +88,16 @@ if ($stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE 1"))
     echo'<td>'.$row['mail_util'].'</td>';
     echo'<td>'.$row['role_util'].'</td>';
     echo'<td><a class="btn btn-danger confirmation" href="delete.php?email='.$row['mail_util'].'" role="button">Delete</a></td>';
+    if($row['role_util']==1)
+    {
+    echo'<td><a class="btn btn-danger confirmation" href="rendremembre.php?email='.$row['mail_util'].'" role="button">Rendre membre</a></td>';
+
+    }
+    else
+    {
+    echo'<td><a class="btn btn-danger confirmation" href="rendreadmin.php?email='.$row['mail_util'].'" role="button">Rendre admin</a></td>';
+
+    }
     echo '</tr>';
 $i++;   
 }
