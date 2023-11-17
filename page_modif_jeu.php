@@ -59,7 +59,7 @@
             <?php
             $jeu_a_modifier = $_GET['modif'];
             require_once("param.inc.php");
-            $mysqli = mysqli_connect("localhost", "root", $passwd, "tp");
+            $mysqli = mysqli_connect($host,$login,$passwd,$dbname);
 
             if ($stmt = $mysqli->prepare("SELECT * FROM jeu WHERE nom_jeu = ?")) {
                 $stmt->bind_param("s", $jeu_a_modifier);

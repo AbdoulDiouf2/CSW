@@ -2,6 +2,11 @@
 session_start();
 include 'header.inc.php';
 include 'menumembre.php';
+if (!isset($_SESSION['email']) || !isset($_SESSION['isMembre']) || $_SESSION['isMembre'] !== true) {
+  // Redirigez l'utilisateur vers la page de connexion ou une page d'erreur
+  header("Location: tt_connexion.php"); // Remplacez ceci par l'URL de votre page de connexion
+  exit();
+}
 
 
 ?>
@@ -49,7 +54,7 @@ include 'menumembre.php';
 
   <?php
 require_once("param.inc.php");
-$mysqli = mysqli_connect("localhost", "root", $passwd, "tp");
+$mysqli = mysqli_connect($host,$login,$passwd,$dbname);
 //Id utilisateur
 $stmt1 = $mysqli->prepare("SELECT id_util FROM utilisateur WHERE mail_util = ?");
 $stmt1->bind_param("s", $_SESSION['email']);
@@ -148,8 +153,8 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Par
   <tbody>
 
   <?php
-require_once("param.inc.php");
-$mysqli = mysqli_connect("localhost", "root", $passwd, "tp");
+//require_once("param.inc.php");
+//$mysqli = mysqli_connect($host,$login,$passwd,$dbname);
 //Id utilisateur
 $stmt1 = $mysqli->prepare("SELECT id_util FROM utilisateur WHERE mail_util = ?");
 $stmt1->bind_param("s", $_SESSION['email']);

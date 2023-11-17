@@ -31,8 +31,7 @@
  // $regle = htmlentities($_POST['regle']);
   
   require_once("param.inc.php");
-  $mysqli = mysqli_connect("localhost","root",$passwd,"tp");
-  
+  $mysqli = mysqli_connect($host,$login,$passwd,$dbname); 
   // Attention, ici on ne vérifie pas si l'utilisateur existe déjà
   if ($stmt = $mysqli->prepare("INSERT INTO jeu(nom_jeu, photo_jeu, desc_jeu, categorie_jeu, regle_jeu) VALUES (?, ?, ?, ?, ?)")) {
     $stmt->bind_param("sssss", $nom, $photo, $description, $categorie, $regle);

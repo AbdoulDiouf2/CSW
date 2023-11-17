@@ -3,7 +3,7 @@ session_start();
 $idJeu=$_GET['id_Jeu'];
 // Connexion :
 require_once("param.inc.php");
-$mysqli = new mysqli($host, $login, $passwd, "tp");
+$mysqli = mysqli_connect($host,$login,$passwd,$dbname);
 if ($mysqli->connect_error) {
     die('Erreur de connexion (' . $mysqli->connect_error . ') '
             . $mysqli->connect_error);

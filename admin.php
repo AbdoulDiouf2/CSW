@@ -70,7 +70,7 @@
   
   <?php
 require_once("param.inc.php");
-$mysqli = mysqli_connect("localhost","root",$passwd,"tp");
+$mysqli = mysqli_connect($host,$login,$passwd,$dbname);
 /*
 
 // Connexion :

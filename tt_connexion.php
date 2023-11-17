@@ -35,6 +35,7 @@
                 //$_SESSION['message'] = "Authentification réussi pour un role inconnu.";
                 if($row["role_util"]==1){
                   $_SESSION['isAdmin'] = true;
+                  $_SESSION['isMembre'] = false;
                   $_SESSION['message'] = "Authentification réussi pour un admin.";
 
                   header('Location: admin.php');
@@ -42,6 +43,7 @@
                 if($row["role_util"]==2)
                 {
                   $_SESSION['isAdmin'] = false;
+                  $_SESSION['isMembre'] = true;
                   $_SESSION['message'] = "Authentification réussi pour un membre.";
                 
                 header('Location: membre.php');
@@ -50,6 +52,7 @@
               }else { 
                 // Redirection vers la page d'authetification connexion.php
                 $_SESSION['isAdmin'] = false;
+                $_SESSION['isMembre'] = false;
                 $_SESSION['message'] = "Username or Password Incorrect";
                 header('Location: connexion.php');
                 

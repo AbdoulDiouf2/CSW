@@ -24,7 +24,7 @@ if (isset($_POST['modifier'])) {
     }
 
     require_once("param.inc.php");
-    $mysqli = mysqli_connect("localhost", "root", $passwd, "tp");
+    $mysqli = mysqli_connect($host,$login,$passwd,$dbname);
 
     if ($stmt = $mysqli->prepare("UPDATE jeu SET photo_jeu = ?, desc_jeu = ?, categorie_jeu = ?, regle_jeu = ? WHERE nom_jeu = ?")) {
         $stmt->bind_param("sssss", $photo, $description, $categorie, $regle, $nom);

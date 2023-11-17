@@ -59,7 +59,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isA
 
             <?php
             require_once("param.inc.php");
-            $mysqli = mysqli_connect("localhost", "root", $passwd, "tp");
+            $mysqli = mysqli_connect($host,$login,$passwd,$dbname);
 
             if ($stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE mail_util = ?")) {
                 $stmt->bind_param("s", $_SESSION['email']);
@@ -91,8 +91,8 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isA
   <tbody>
 
   <?php
-require_once("param.inc.php");
-$mysqli = mysqli_connect("localhost","root",$passwd,"tp");
+//require_once("param.inc.php");
+//$mysqli = mysqli_connect($host,$login,$passwd,$dbname);
 /*
 // Connexion :
 require_once("param.inc.php");
@@ -122,12 +122,21 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_utilJeu = ?"))
     echo  '<th scope="row">'.$i.'</th>';
     echo'<td>'.$nomJeu.'</td>';
     echo'<td>'.$row['date_Jeu'].'</td>';
-    echo'<td><a class="btn btn-danger" href="delete_Date.php?id_CreaJeu='.$i.'" role="button">Delete</a></td>';
+    echo'<td><a class="btn btn-danger confirmation" href="delete_Date.php?id_CreaJeu='.$i.'" role="button">Delete</a></td>';
     echo '</tr>';
 $i++;   
 }
 }
 ?>
+<script type="text/javascript">
+    var elems = document.getElementsByClassName('confirmation');
+    var confirmIt = function (e) {
+        if (!confirm('Are you sure?')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
+</script>
 
 </tbody>
 
