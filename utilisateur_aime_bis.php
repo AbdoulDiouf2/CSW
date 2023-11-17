@@ -17,11 +17,12 @@ $row2 = $result2->fetch_assoc();
 
 
 
-    if ($stmt = $mysqli->prepare("UPDATE joueurjeu SET joueur_aimant = '1' WHERE id_jeu= ? AND id_util=? limit 1")) 
+    if ($stmt1 = $mysqli->prepare("INSERT INTO joueurjeu (id_util, id_jeu, joueur_aimant) VALUES (?,?,1)") ) 
     {
 
-    $stmt->bind_param("ii", $idJeu, $row2['id_util']);
-    $stmt->execute();
+        
+        $stmt1->bind_param("ii", $row2['id_util'], $idJeu);
+        $stmt1->execute();
     }
 /*
     else 

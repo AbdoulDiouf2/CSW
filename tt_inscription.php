@@ -21,10 +21,36 @@
       die('Erreur de connexion (' . $mysqli->connect_errno . ') '
               . $mysqli->connect_error);
   }
+  $existe = 0;
+  if($test = $mysqli->prepare("SELECT * FROM utilisateur"))
+  {
+  $test->execute();
+  $result0 = $test->get_result();
+  while($row0 = $result0->fetch_assoc())
+  {
+    if($email==$row0['mail_util'])
+    {
+      $existe=1;
+    }
+    else
+    {
+      
+    }
+  }
+}
+  if($existe==1)
   
-
-  // Attention, ici on ne vérifie pas si l'utilisateur existe déjà
-  if ($stmt = $mysqli->prepare("INSERT INTO utilisateur(nom_util, prenom_util, mail_util, mdp_util, role_util) VALUES (?, ?, ?, ?, ?)")) {
+  {
+    $_SESSION['message'] =  "Veuillez saisir une adresse mail différente";
+    $existe=0;
+    header('Location: inscription.php');
+  
+  
+}
+else
+{
+  if ($stmt = $mysqli->prepare("INSERT INTO utilisateur(nom_util, prenom_util, mail_util, mdp_util, role_util) VALUES (?, ?, ?, ?, ?)")) 
+  {
     $password = password_hash($password, PASSWORD_BCRYPT, $options);
     $stmt->bind_param("ssssi", $nom, $prenom, $email, $password, $role);
     // Le message est mis dans la session, il est préférable de séparer message normal et message d'erreur.
@@ -35,8 +61,11 @@
         $_SESSION['message'] =  "Impossible d'enregistrer";
     }
   }
-  // Redirection vers la page d'accueil par exemple :
+  $existe=0;
   header('Location: index.php');
+}
+  // Redirection vers la page d'accueil par exemple :
+  
 
 
 ?>

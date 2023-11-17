@@ -78,6 +78,8 @@
                   $stmt2->execute();
                   $result2 = $stmt2->get_result();
                   $row2 = $result2->fetch_assoc();
+                  if($result2->num_rows > 0)
+                  {
                     echo '<tr>';
                     echo  '<th scope="row">' . $i . '</th>';
                     echo '<td>' . $row['categorie_jeu'] . '</td>';
@@ -85,12 +87,24 @@
                     echo '<td><img src="images/' . $row['photo_jeu'] . '" width="200px" height="200px"></td>';
                     echo '<td>' . $row['desc_jeu'] . '</td>';
                     echo '<td><a href="regle_de_jeu/' . $row['regle_jeu'] . '" >Règle de jeu</a></td>';
-
+                    
                     if ($row2['joueur_aimant'] == 0) {
                         echo '<td><a class="btn btn-danger" href="utilisateur_aime.php?id_Jeu='.$row['id_jeu'].'" role="button">Like</a></td>';
                     } else if ($row2['joueur_aimant'] == 1) {
                         echo '<td><a class="btn btn-danger" href="utilisateur_aime_pas.php?id_Jeu='.$row['id_jeu'].'" role="button">dislike</a></td>';
                     }
+                  }
+                  else
+                  {
+                    echo '<tr>';
+                    echo  '<th scope="row">' . $i . '</th>';
+                    echo '<td>' . $row['categorie_jeu'] . '</td>';
+                    echo '<td>' . $row['nom_jeu'] . '</td>';
+                    echo '<td><img src="images/' . $row['photo_jeu'] . '" width="200px" height="200px"></td>';
+                    echo '<td>' . $row['desc_jeu'] . '</td>';
+                    echo '<td><a href="regle_de_jeu/' . $row['regle_jeu'] . '" >Règle de jeu</a></td>';
+                    echo '<td><a class="btn btn-danger" href="utilisateur_aime_bis.php?id_Jeu='.$row['id_jeu'].'" role="button">Like</a></td>';
+                  }
                     /*
                     if ($row2['joueur_inscris'] == 0) {
                         echo '<td><a class="btn btn-danger" href="utilisateur_inscription.php?id_CreaJeu='.$row['id_jeu'].'" role="button">Inscription</a></td>';

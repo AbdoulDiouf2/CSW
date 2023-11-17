@@ -2,11 +2,6 @@
 session_start();
 include 'header.inc.php';
 include 'menumembre.php';
-if (!isset($_SESSION['email']) || !isset($_SESSION['isMembre']) || $_SESSION['isMembre'] !== true) {
-  // Redirigez l'utilisateur vers la page de connexion ou une page d'erreur
-  header("Location: tt_connexion.php"); // Remplacez ceci par l'URL de votre page de connexion
-  exit();
-}
 
 
 ?>
@@ -54,7 +49,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isMembre']) || $_SESSION['is
 
   <?php
 require_once("param.inc.php");
-$mysqli = mysqli_connect($host,$login,$passwd,$dbname);
+$mysqli = mysqli_connect("localhost", "root", $passwd, "tp");
 //Id utilisateur
 $stmt1 = $mysqli->prepare("SELECT id_util FROM utilisateur WHERE mail_util = ?");
 $stmt1->bind_param("s", $_SESSION['email']);
@@ -108,7 +103,7 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Par
     {
     echo'<td><a class="btn btn-danger confirmation" href="utilisateur_inscription.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Inscription</a></td>';
     }
-    
+    echo'<td><a class="btn btn-danger " href="liste_inscris.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">voir les joueurs inscrits</a></td>';
     /*
     if($row['Partie_terminee'] == 0) {
     echo'<td><a class="btn btn-danger" href="terminer_partie.php?id_CreaJeu='.$i.'" role="button">Terminer la partie</a></td>';
@@ -153,8 +148,8 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Par
   <tbody>
 
   <?php
-//require_once("param.inc.php");
-//$mysqli = mysqli_connect($host,$login,$passwd,$dbname);
+require_once("param.inc.php");
+$mysqli = mysqli_connect("localhost", "root", $passwd, "tp");
 //Id utilisateur
 $stmt1 = $mysqli->prepare("SELECT id_util FROM utilisateur WHERE mail_util = ?");
 $stmt1->bind_param("s", $_SESSION['email']);
@@ -208,6 +203,7 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Par
     {
     echo'<td><a class="btn btn-danger confirmation" href="utilisateur_inscription.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Inscription</a></td>';
     }
+    echo'<td><a class="btn btn-danger " href="liste_inscris.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">voir les joueurs inscrits</a></td>';
     
     /*
     if($row['Partie_terminee'] == 0) {
@@ -244,3 +240,4 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Par
 <?php
 include 'footer.admin.php';
 ?>
+
