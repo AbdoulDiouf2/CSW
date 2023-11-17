@@ -23,7 +23,7 @@
   }
   */
     $requeteSelect1 = $mysqli->prepare("SELECT id_util FROM utilisateur WHERE mail_util = ?");
-    $requeteSelect1->bind_param("s", $mailAdmin); 
+    $requeteSelect1->bind_param("s", $_SESSION['email']); 
     $requeteSelect1->execute();
     $requeteSelect1->bind_result($idUtilisateur);
     $requeteSelect1->fetch();

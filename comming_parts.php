@@ -173,28 +173,37 @@ while($row2 = $result2->fetch_assoc())
 {
 if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Partie_terminee = 0" )) 
 {
-  $stmt->bind_param("s", $row2['id_jeu']);
+  $stmt->bind_param("i", $row2['id_jeu']);
   $stmt->execute();
   $result = $stmt->get_result(); 
   while($row = $result->fetch_assoc()) 
 {
-    $stmt3 = $mysqli->prepare("SELECT nom_jeu FROM jeu WHERE id_jeu = ?");
-    $stmt3->bind_param("i", $row2['id_jeu']);
-    $stmt3->execute();
-    $stmt3->bind_result($nomJeu);
-    $stmt3->fetch();
-    $stmt3->close();
+  if ($stmt4 = $mysqli->prepare("SELECT * FROM creneaujoueur WHERE id_CreaJeu = ? AND id_util = ?" )) 
+  {
+    $stmt4->bind_param("ii", $row['id_CreaJeu'], $row1['id_util']);
+    $stmt4->execute();
+    $result4 = $stmt4->get_result();
+    $row4 = $result4->fetch_assoc();
+    
+    $stmt35 = $mysqli->prepare("SELECT nom_jeu FROM jeu WHERE id_jeu = ?");
+    $stmt35->bind_param("i", $row2['id_jeu']);
+    $stmt35->execute();
+    $stmt35->bind_result($nomJeu);
+    $stmt35->fetch();
+    $stmt35->close();
     echo '<tr>';     
     echo  '<th scope="row">'.$i.'</th>';
     echo'<td>'.$nomJeu.'</td>';
     echo'<td>'.$row['date_Jeu'].'</td>';
-    if($row['Partie_terminee'] == 0) {
-    echo'<td><a class="btn btn-danger" href="terminer_partie.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Inscription</a></td>';
+    if($result4->num_rows > 0) {
+    
+    echo'<td><a class="btn btn-danger confirmation" href="utilisateur_desinscription.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Desinscription</a></td>';
     }
-    else if($row['Partie_terminee'] == 1)
+    else 
     {
-    echo'<td><a class="btn btn-danger" href="renouveler_partie.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Desinscription</a></td>';
+    echo'<td><a class="btn btn-danger confirmation" href="utilisateur_inscription.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Inscription</a></td>';
     }
+    
     /*
     if($row['Partie_terminee'] == 0) {
     echo'<td><a class="btn btn-danger" href="terminer_partie.php?id_CreaJeu='.$i.'" role="button">Terminer la partie</a></td>';
@@ -207,11 +216,19 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Par
     echo '</tr>';
     $i++; 
   }
- 
+}
 }
 }
 ?>
-
+<script type="text/javascript">
+    var elems = document.getElementsByClassName('confirmation');
+    var confirmIt = function (e) {
+        if (!confirm('Are you sure?')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
+</script>
 </tbody>
 
 </table>

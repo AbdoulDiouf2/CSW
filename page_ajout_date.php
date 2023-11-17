@@ -57,12 +57,14 @@
             <input type="text" class="form-control " id="date" name="date" placeholder="la date du jeu..." required>
         </div>
     </div>
+    <!--
     <div class="row my-6">
         <div class="col-md-6">
             <label for="email" class="form-label">votre email</label>
             <input type="text" class="form-control " id="email" name="email" placeholder="votre email..." required>
         </div>
     </div>
+  -->
 
         
     </div>

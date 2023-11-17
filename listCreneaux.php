@@ -94,7 +94,7 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE 1"))
     }
     else if($row['Partie_terminee'] == 1)
     {
-    echo'<td><a class="btn btn-danger confirmation" href="renouveler_partie.php?id_CreaJeu='.$i.'" role="button">Renouveler la partie</a></td>';
+    echo'<td><a class="btn btn-danger confirmation" href="renouveler_partie.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Renouveler la partie</a></td>';
     }
     /*
     if($row['Partie_terminee'] == 0) {

@@ -64,15 +64,17 @@
         $stmt2->bind_param("i", $row3['id_util']);
         $stmt2->execute();
         $result2 = $stmt2->get_result(); 
-        $row2 = $result2->fetch_assoc();
+        
+        while($row2 = $result2->fetch_assoc())
+        {
 
-
-        $stmt1 = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_CreaJeu = ?");
+        if ($stmt1 = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_CreaJeu = ? AND Partie_terminee = 1"))
+        {
         $stmt1->bind_param("i", $row2['id_CreaJeu']);
         $stmt1->execute();
         $result1 = $stmt1->get_result(); 
-        while($row1 = $result1->fetch_assoc())
-        {
+        $row1 = $result1->fetch_assoc();
+        
 
 
         if ($stmt = $mysqli->prepare("SELECT * FROM jeu WHERE id_jeu = ?")) 
@@ -93,6 +95,7 @@
                 $i++;   
             }
         }
+      }
         }
     ?>
 
