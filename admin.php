@@ -9,6 +9,18 @@
       exit();
   }
 ?>
+<?php
+  require_once("param.inc.php");
+  $mysqli = mysqli_connect($host, $login, $passwd, $dbname);
+
+  if ($stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE mail_util = ?")) {
+      $stmt->bind_param("s", $_SESSION['email']);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      $row = $result->fetch_assoc();
+      echo "<h1 style = 'color: #990000; font-size: 50px; font-family: Handlee; font-weight: 400; word-wrap: break-word'>Bienvenue " . $row['prenom_util'] . ' ' . $row['nom_util'] . ",</h1>";
+  }
+?>
 <div style="width: 200px; height: 100px; margin : auto;">
 
 </div>
