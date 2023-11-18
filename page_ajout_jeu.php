@@ -79,10 +79,16 @@
       </div>
 
       <div class="row my-3">
-        <div class="col-md-4">
+<!--        <div class="col-md-4">
             <label for="photo" class="form-label">Ajout d'une photo</label>
             <input type="file" name="userfile" id="photo" class="form-control" required>            
         </div>
+  -->
+        <div class="col-md-4">
+          <label for="formFileMultiple" class="form-label">Ajout de photos</label>
+          <input class="form-control" name="userfile" type="file" id="formFileMultiple" multiple required>
+        </div>
+      
       </div>
       
       <div class="row my-3">

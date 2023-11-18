@@ -96,11 +96,12 @@
                     </li>
 
                     <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                        <p>+33 - 6 - 99 - 99 - 99 - 99</p>
+                        <p>+33 - 7 - 49 - 05 - 18 - 79</p>
                     </li>
 
                     <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                        <p>esigplay@contact.com</p>
+                        <p>abdoul.diouf2@groupe-esigelec.org</p>
+                        <p>valentin.deslandes@groupe-esigelec.org</p>
                     </li>
                 </ul>
             </div>

@@ -62,7 +62,7 @@ else
     }
   }
   $existe=0;
-  header('Location: index.php');
+  header('Location: connexion.php');
 }
   // Redirection vers la page d'accueil par exemple :
   

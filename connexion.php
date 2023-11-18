@@ -55,7 +55,18 @@ session_start();
                     </div>
                 </div>
                 <div class="row my-3">
-                    <div class="d-grid gap-2 d-md-block"><button class="btn btn-outline-danger" type="submit">Connexion</button></div>   
+                    <div class="d-grid gap-2 d-md-block"><button class="btn btn-outline-danger" type="submit">Connexion</button></div>
+                </div>
+            </div>
+
+            <div class="row my-3">
+                <div class="col-md-6">
+                    <a href="mot_de_passe_oublie.php">Mot de passe oublié ?</a>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-6">
+                    <p>Vous n'avez pas de compte ? <a href="inscription.php">Inscrivez-vous !!!</a></p>
                 </div>
             </div>
         </div>
