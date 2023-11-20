@@ -16,6 +16,6 @@ if ($stmt = $mysqli->prepare("DELETE FROM creationjeu WHERE id_CreaJeu=? limit 1
 }
 
 
-header("location: page_ProfilAdmin.php")
+header("location: listCreneaux.php")
 
 ?>

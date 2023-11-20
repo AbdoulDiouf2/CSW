@@ -120,7 +120,7 @@ Carousel emplacement
             </div>
         </div>
     </div>
-
+<!--
 <hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
     <div class="container">
         <div class="row my-3">
@@ -139,7 +139,7 @@ Carousel emplacement
             </thead>
             <tbody>                  
 
-                <?php
+                --php
                 require_once("param.inc.php");
                 $mysqli = mysqli_connect($host,$login,$passwd,$dbname);
                 /*
@@ -179,6 +179,66 @@ Carousel emplacement
             font-size: 50px;
         }
     </style>
+-->
+<hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
+
+<div class="container">
+    <div class="row my-3">
+        <div class="row">
+            <div class="col-md-12 text-center" style="width: 100%; height: auto; color: black; font-size: 60px; font-family: Handlee; font-weight: 400; word-wrap: break-word">
+                <span style="color: #FF6666; font-size: 50px; font-family: Handlee; font-weight: 400; word-wrap: break-word">Quelques jeux que nous proposons !!!</span>
+            </div>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <?php
+        require_once("param.inc.php");
+        $mysqli = mysqli_connect($host, $login, $passwd, $dbname);
+
+        if ($mysqli->connect_error) {
+            die('Erreur de connexion (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
+        }
+
+        if ($stmt = $mysqli->prepare("SELECT nom_jeu, photo_jeu FROM jeu LIMIT 6")) {
+            $stmt->execute();
+            $result = $stmt->get_result();
+            while ($row = $result->fetch_assoc()) {
+                echo '<div class="col">';
+                echo '<div class="card h-100">';
+                echo '<img src="images/' . $row['photo_jeu'] . '" class="card-img-top custom-img1" alt="' . $row['nom_jeu'] . '"/>';
+                echo '<div class="card-body">';
+                echo '<h5 class="card-title">' . $row['nom_jeu'] . '</h5>';
+                echo '</div>';
+                echo '<div class="card-footer">';
+                echo '<small class="text-muted">Last updated 3 mins ago</small>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            }
+        }
+        ?>
+    </div>
+</div>
+
+<style>
+    .custom-img1 {
+        width: 65%;
+        height: 200px; /* Réglez la hauteur souhaitée */
+    }
+
+    .table>:not(caption)>*>* {
+        padding: 0.5rem 0.5rem;
+        color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)));
+        background-color: rgba(0, 0, 0, 0);
+        border-bottom-width: var(--bs-border-width);
+        box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg)));
+    }
+
+    td {
+        font-size: 50px;
+    }
+</style>
+<br>
 <hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
     <div class="container">
         <div class="row my-3">

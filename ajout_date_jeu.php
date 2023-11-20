@@ -40,15 +40,15 @@ if (
     $requeteInsert1 = $mysqli->prepare("INSERT INTO creationjeu (id_utilJeu, date_Jeu, id_jeu) VALUES (?, ?, ?)")) {
     $requeteInsert1->bind_param("isi", $idUtilisateur, $date, $idJeu); // "i" indique que c'est un entier (integer)
     if($requeteInsert1->execute()) {
-        $_SESSION['message'] = "Enregistrement réussi";
+        $_SESSION['message'] = "Ajout réussi";
+        header('Location: listCreneaux.php');
 
     } else {
-        $_SESSION['message'] =  "Impossible d'enregistrer";
+        $_SESSION['message'] =  "Ajout Impossible";
+        header('Location: listCreneaux.php');
     }
 }
-  
-  // Redirection vers la page d'accueil par exemple :
-  header('Location: page_ajout_date.php');
+
 
 
 ?>

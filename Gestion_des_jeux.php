@@ -54,9 +54,7 @@
 </ul>
 <br><br>
 
-<div style="width: 200px; height: 100px; margin : auto;">
-<a class="btn btn-danger" href="page_ajout_jeu.php" role="button">Ajouter un jeu</a> 
-</div>
+<!--
 <table class="table">
   <thead>
     <tr>
@@ -70,7 +68,7 @@
   </thead>
   <tbody>
   
-  <?php
+  <php
   require_once("param.inc.php");
   $mysqli = mysqli_connect($host,$login,$passwd,$dbname);
 /*
@@ -119,6 +117,72 @@ $i++;
 </tbody>
 
 </table>
+  -->
+
+<?php
+require_once("param.inc.php");
+$mysqli = mysqli_connect($host, $login, $passwd, $dbname);
+
+$i = 1;
+if ($stmt = $mysqli->prepare("SELECT * FROM jeu WHERE 1")) {
+    $stmt->execute();
+    $result = $stmt->get_result();
+    ?>
+
+    <div class="container">
+        <h2>Liste des jeux</h2>
+        <div style="width: 200px; height: 100px; margin : auto;">
+          <a class="btn btn-danger" href="page_ajout_jeu.php" role="button">Ajouter un jeu</a> 
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+            <?php
+            while ($row = $result->fetch_assoc()) {
+            ?>
+                <div class="col">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong><?php echo $row['nom_jeu']; ?></strong></h5>
+                            <p class="card-text"><?php echo $row['desc_jeu']; ?></p>
+                            <p class="card-text"><strong>Catégorie:</strong> <?php echo $row['categorie_jeu']; ?></p>
+                            <img class="card-img-top custom-img1" src="images/<?php echo $row['photo_jeu']; ?>" alt="Card image cap">
+                            <br>
+                            <a class="btn btn-danger" href="page_modif_jeu.php?modif=<?php echo $row['nom_jeu']; ?>" role="button">Modifier</a>
+                            <a class="btn btn-danger confirmation" href="delete_jeu.php?jeu=<?php echo $row['nom_jeu']; ?>" role="button">Delete</a>
+                            <a class="btn btn-danger" href="liste_aimant.php?id_Jeu=<?php echo $row['id_jeu']; ?>" role="button">Voir les inscris</a>
+                            <a href="regle_de_jeu/<?php echo $row['regle_jeu']; ?>" class="btn btn-danger">Règle</a>
+                        </div>
+                    </div>
+                </div>
+            <?php
+                $i++;
+            }
+            ?>
+
+        </div>
+    </div>
+
+    <style>
+        .custom-img1 {
+            width: 65%;
+            height: 200px; /* Réglez la hauteur souhaitée */
+        }
+    </style>
+
+    <script type="text/javascript">
+        var elems = document.getElementsByClassName('confirmation');
+        var confirmIt = function (e) {
+            if (!confirm('Are you sure?')) e.preventDefault();
+        };
+        for (var i = 0, l = elems.length; i < l; i++) {
+            elems[i].addEventListener('click', confirmIt, false);
+        }
+    </script>
+
+<?php
+}
+?>
+
 
 
 </div>

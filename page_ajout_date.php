@@ -54,18 +54,9 @@
         </div>
         <div class="col-md-6">
             <label for="date" class="form-label">Date</label>
-            <input type="text" class="form-control " id="date" name="date" placeholder="la date du jeu..." required>
+            <input type="date" class="form-control " id="date" name="date" required>
         </div>
     </div>
-    <!--
-    <div class="row my-6">
-        <div class="col-md-6">
-            <label for="email" class="form-label">votre email</label>
-            <input type="text" class="form-control " id="email" name="email" placeholder="votre email..." required>
-        </div>
-    </div>
-  -->
-
         
     </div>
         <div style="width: 200px; height: 100px; margin : auto;">

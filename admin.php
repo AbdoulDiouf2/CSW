@@ -66,7 +66,7 @@
   -->
 </ul>
 <br><br>
-
+<!--
 <table class="table">
   <thead>
     <tr>
@@ -80,7 +80,7 @@
   </thead>
   <tbody>
   
-  <?php
+  --php
 require_once("param.inc.php");
 $mysqli = mysqli_connect($host,$login,$passwd,$dbname);
 /*
@@ -114,11 +114,58 @@ if ($stmt = $mysqli->prepare("SELECT nom_jeu, desc_jeu, categorie_jeu, photo_jeu
 $i++;   
 }
 }
-?>
+--?>
 
 </tbody>
 
 </table>
+-->
+
+<?php
+require_once("param.inc.php");
+$mysqli = mysqli_connect($host, $login, $passwd, $dbname);
+
+$i = 1;
+if ($stmt = $mysqli->prepare("SELECT nom_jeu, desc_jeu, categorie_jeu, photo_jeu, regle_jeu FROM jeu WHERE 1")) {
+    $stmt->execute();
+    $result = $stmt->get_result();
+    ?>
+
+    <div class="container">
+        <h2>Liste des jeux</h2>
+        <div class="row">
+
+            <?php
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <div class="col-md-4 mb-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top custom-img1" src="images/<?php echo $row['photo_jeu']; ?>" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $row['nom_jeu']; ?></h5>
+                            <p class="card-text"><?php echo $row['desc_jeu']; ?></p>
+                            <p class="card-text"><strong>Catégorie:</strong> <?php echo $row['categorie_jeu']; ?></p>
+                            <a href="regle_de_jeu/<?php echo $row['regle_jeu']; ?>" class="btn btn-danger">Voir la règle</a>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                $i++;
+            }
+            ?>
+
+        </div>
+    </div>
+
+    <?php
+}
+?>
+<style>
+  .custom-img1 {
+        width: 65%;
+        height: 200px; /* Réglez la hauteur souhaitée */
+    }
+</style>
 
 
 

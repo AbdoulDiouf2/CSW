@@ -1,13 +1,10 @@
 <?php
-
-//    require_once("roleadmin.php");
   session_start();
     $titre = "Administrateur";
     include 'header.inc.php';
     include 'menuadmin.php';
     if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
-      // Redirigez l'utilisateur vers la page de connexion ou une page d'erreur
-      header("Location: tt_connexion.php"); // Remplacez ceci par l'URL de votre page de connexion
+      header("Location: tt_connexion.php");
       exit();
   }
 ?>
@@ -44,80 +41,134 @@
 <br><br>
 
 
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nom</th>
-      <th scope="col">Prénom</th>
-      <th scope="col">Email</th>
-      <th scope="col">Role</th>
-      <th scope="col">Action</th>
-      <th scope="col">Rendre Admin</th>
-    </tr>
-  </thead>
-  <tbody>
-  
-  <?php
+<!--
+--php
 require_once("param.inc.php");
-$mysqli = mysqli_connect($host,$login,$passwd,$dbname);
-/*
-// Connexion :
-require_once("param.inc.php");
-$mysqli = new mysqli($host, $login, $passwd, $dbname);
-if ($mysqli->connect_error) {
-    die('Erreur de connexion (' . $mysqli->connect_errno . ') '
-            . $mysqli->connect_error);
-}
-*/
+$mysqli = mysqli_connect($host, $login, $passwd, $dbname);
 
+$i = 1;
+if ($stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE 1")) {
+    $stmt->execute();
+    $result = $stmt->get_result();
+    ?>
 
-$i=1;
-if ($stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE 1")) 
-{
- 
-  $stmt->execute();
-  $result = $stmt->get_result();   
-  while($row = $result->fetch_assoc()) 
-  {     
-    echo '<tr>';     
-    echo  '<th scope="row">'.$i.'</th>';
-    echo'<td>'.$row['nom_util'].'</td>';
-    echo'<td>'.$row['prenom_util'].'</td>';
-    echo'<td>'.$row['mail_util'].'</td>';
-    echo'<td>'.$row['role_util'].'</td>';
-    echo'<td><a class="btn btn-danger confirmation" href="delete.php?email='.$row['mail_util'].'" role="button">Delete</a></td>';
-    if($row['role_util']==1)
-    {
-    echo'<td><a class="btn btn-danger confirmation" href="rendremembre.php?email='.$row['mail_util'].'" role="button">Rendre membre</a></td>';
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+                <th scope="col">Action</th>
+                <th scope="col">Modifier le rôle</th>
+            </tr>
+        </thead>
+        <tbody>
 
-    }
-    else
-    {
-    echo'<td><a class="btn btn-danger confirmation" href="rendreadmin.php?email='.$row['mail_util'].'" role="button">Rendre admin</a></td>';
+            --php
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <tr>
+                    <th scope="row">--php echo $i; ?></th>
+                    <td>--php echo $row['nom_util']; ?></td>
+                    <td>--php echo $row['prenom_util']; ?></td>
+                    <td>--php echo $row['mail_util']; ?></td>
+                    <td>--php echo ($row['role_util'] == 1) ? 'Admin' : 'Membre'; ?></td>
+                    <td><a class="btn btn-danger confirmation" href="delete.php?email=--php echo $row['mail_util']; ?>" role="button">Delete</a></td>
+                    <td>
+                        --php
+                        if ($row['role_util'] == 1) {
+                            echo '<a class="btn btn-danger confirmation" href="rendremembre.php?email=' . $row['mail_util'] . '" role="button">Rendre membre</a>';
+                        } else {
+                            echo '<a class="btn btn-danger confirmation" href="rendreadmin.php?email=' . $row['mail_util'] . '" role="button">Rendre admin</a>';
+                        }
+                        ?>
+                    </td>
+                </tr>
+                --php
+                $i++;
+            }
+            ?>
 
-    }
-    echo '</tr>';
-$i++;   
-}
+        </tbody>
+
+    </table>
+
+    <script type="text/javascript">
+        var elems = document.getElementsByClassName('confirmation');
+        var confirmIt = function (e) {
+            if (!confirm('Are you sure?')) e.preventDefault();
+        };
+        for (var i = 0, l = elems.length; i < l; i++) {
+            elems[i].addEventListener('click', confirmIt, false);
+        }
+    </script>
+
+--php
 }
 ?>
+-->
 
-<script type="text/javascript">
-    var elems = document.getElementsByClassName('confirmation');
-    var confirmIt = function (e) {
-        if (!confirm('Are you sure?')) e.preventDefault();
-    };
-    for (var i = 0, l = elems.length; i < l; i++) {
-        elems[i].addEventListener('click', confirmIt, false);
-    }
-</script>
+<?php
+require_once("param.inc.php");
+$mysqli = mysqli_connect($host, $login, $passwd, $dbname);
 
-</tbody>
+$i = 1;
+if ($stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE 1")) {
+    $stmt->execute();
+    $result = $stmt->get_result();
+    ?>
 
-</table>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
+        <?php
+        while ($row = $result->fetch_assoc()) {
+        ?>
+            <div class="col">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong><?php echo $row['nom_util'] . " " . $row['prenom_util']; ?></strong></h5>
+                        <p class="card-text"><?php echo "<strong>Email:</strong> " . $row['mail_util']; ?></p>
+                        <p class="card-text"><?php echo "<strong>Role:</strong> " . (($row['role_util'] == 1) ? 'Admin' : 'Membre'); ?></p>
+                        <a href="delete.php?email=<?php echo $row['mail_util']; ?>" class="btn btn-danger confirmation" role="button">Supprimer</a>
+                        <?php
+                        if ($row['role_util'] == 1) {
+                            echo '<a href="rendremembre.php?email=' . $row['mail_util'] . '" class="btn btn-danger confirmation" role="button">Rendre membre</a>';
+                        } else {
+                            echo '<a href="rendreadmin.php?email=' . $row['mail_util'] . '" class="btn btn-danger confirmation" role="button">Rendre admin</a>';
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+
+        <?php
+            $i++;
+        }
+        ?>
+
+    </div>
+
+    <style>
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var elems = document.getElementsByClassName('confirmation');
+        var confirmIt = function (e) {
+            if (!confirm('Are you sure?')) e.preventDefault();
+        };
+        for (var i = 0, l = elems.length; i < l; i++) {
+            elems[i].addEventListener('click', confirmIt, false);
+        }
+    </script>
+
+<?php
+}
+?>
 
 </div>
 <?php
