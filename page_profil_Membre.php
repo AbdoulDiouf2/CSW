@@ -13,7 +13,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isMembre']) || $_SESSION['is
 <div style="width: 200px; height: 100px; margin : auto;">
 
 </div>
-<div class="container">
+<div class="container flex-grow-1">
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link" href="membre.php" >Accueil</a>

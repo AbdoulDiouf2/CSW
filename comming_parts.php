@@ -9,7 +9,7 @@ include 'menumembre.php';
 
 </div>
 
-<div class="container">
+<div class="container flex-grow-1">
 
 <ul class="nav nav-tabs">
   <li class="nav-item">
@@ -49,7 +49,7 @@ include 'menumembre.php';
 
   <?php
 require_once("param.inc.php");
-$mysqli = mysqli_connect("localhost", "root", $passwd, "tp");
+$mysqli = mysqli_connect($host, $login, $passwd, $dbname);
 //Id utilisateur
 $stmt1 = $mysqli->prepare("SELECT id_util FROM utilisateur WHERE mail_util = ?");
 $stmt1->bind_param("s", $_SESSION['email']);
@@ -149,7 +149,7 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Par
 
   <?php
 require_once("param.inc.php");
-$mysqli = mysqli_connect("localhost", "root", $passwd, "tp");
+$mysqli = mysqli_connect($host, $login, $passwd, $dbname);
 //Id utilisateur
 $stmt1 = $mysqli->prepare("SELECT id_util FROM utilisateur WHERE mail_util = ?");
 $stmt1->bind_param("s", $_SESSION['email']);

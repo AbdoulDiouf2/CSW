@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Envoyer l'e-mail
     if (mail($to, $email_subject, $email_body, $headers)) {
-        echo "<script>alert('Votre message a été envoyé avec succès.');</script>";
+        echo "<script>alert('Votre message a été envoyé avec succès. Notre équipe ne va pas tarder à vous répondre.');</script>";
     } else {
         echo "<script>alert('Une erreur s'est produite lors de l'envoi de votre message.');</script>";
     }
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "
     <script>
         window.location.href='contactus.php';
-        alert('Le formulaire n'a pas été soumis correctement.'); 
+        alert('Le formulaire n'a pas été soumis correctement. Merci de réessayer ultérieurement.'); 
     </script>";
 }
 ?>

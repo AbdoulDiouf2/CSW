@@ -13,7 +13,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isA
 
 </div>
 
-<div class="container">
+<div class="container flex-grow-1">
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link" href="admin.php">Accueil</a>

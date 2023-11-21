@@ -16,7 +16,16 @@
 
 
 
-<div class="container">
+<div class="container flex-grow-1">
+<?php
+    if(isset($_SESSION['message'])) {
+        echo '<div class="alert alert-primary alert-dismissible fade show" role="alert">';
+        echo $_SESSION['message'];
+        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+        echo '</div>';
+        unset($_SESSION['message']);
+    }
+    ?>
 
 <ul class="nav nav-tabs">
   <li class="nav-item">

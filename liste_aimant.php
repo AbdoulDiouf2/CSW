@@ -12,7 +12,7 @@
 <div style="width: 200px; height: 100px; margin : auto;">
 
 </div>
-<div class="container">
+<div class="container flex-grow-1">
 
 
 <?php

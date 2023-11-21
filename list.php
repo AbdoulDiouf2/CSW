@@ -11,7 +11,7 @@
 <div style="width: 200px; height: 100px; margin : auto;">
 
 </div>
-<div class="container">
+<div class="container flex-grow-1">
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link" href="admin.php">Accueil</a>
@@ -108,7 +108,6 @@ if ($stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE 1")) {
 }
 ?>
 -->
-
 <?php
 require_once("param.inc.php");
 $mysqli = mysqli_connect($host, $login, $passwd, $dbname);
@@ -126,6 +125,7 @@ if ($stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE 1")) {
         ?>
             <div class="col">
                 <div class="card mb-3">
+                    <img src="<?php echo 'user_photo/'.$row['photo']; ?>" class="card-img-top" alt="User Image">
                     <div class="card-body">
                         <h5 class="card-title"><strong><?php echo $row['nom_util'] . " " . $row['prenom_util']; ?></strong></h5>
                         <p class="card-text"><?php echo "<strong>Email:</strong> " . $row['mail_util']; ?></p>
@@ -153,21 +153,20 @@ if ($stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE 1")) {
         .card {
             margin-bottom: 20px;
         }
-    </style>
-
-    <script type="text/javascript">
-        var elems = document.getElementsByClassName('confirmation');
-        var confirmIt = function (e) {
-            if (!confirm('Are you sure?')) e.preventDefault();
-        };
-        for (var i = 0, l = elems.length; i < l; i++) {
-            elems[i].addEventListener('click', confirmIt, false);
+        .card-img-top {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border-radius: 50%;
         }
-    </script>
-
+    </style>
 <?php
 }
 ?>
+
 
 </div>
 <?php

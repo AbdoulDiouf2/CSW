@@ -13,7 +13,7 @@
         'cost' => 12,
   ];
   require_once("param.inc.php");
-  $mysqli = mysqli_connect("localhost","root",$passwd,"tp");
+  $mysqli = mysqli_connect($host, $login, $passwd, $dbname);
   /*
   // Connexion :
   require_once("param.inc.php");
@@ -31,13 +31,14 @@
     // Le message est mis dans la session, il est préférable de séparer message normal et message d'erreur.
     if($stmt->execute()) {
         $_SESSION['message'] = "Enregistrement réussi";
-
+        header('Location: page_ajout_admin.php');        
     } else {
         $_SESSION['message'] =  "Impossible d'enregistrer";
-    }
+        header('Location: page_ajout_admin.php');
+      }
   }
-  // Redirection vers la page d'accueil par exemple :
-  header('Location: page_ajout_admin.php');
+
+
 
 
 ?>
