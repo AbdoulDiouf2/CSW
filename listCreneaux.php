@@ -51,13 +51,14 @@
 <br><br>
 
 
-
+<h2>Liste des créneau</h2>
 <table class="table">
   <thead>
     <tr>
         <th scope="col">#</th>
         <th scope="col">Nom du jeu</th>
         <th scope="col">date du jeu</th>
+        <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -130,6 +131,68 @@ $i++;
 </tbody>
 
 </table>
+<!-- **************************************************************** -->
+<br><br>
+<!-- **************************************************************** -->
+<h2>Liste des membres inscrits aux jeux</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Nom du jeu</th>
+            <th scope="col">Date du jeu</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <?php
+        require_once("param.inc.php");
+        $mysqli = mysqli_connect($host, $login, $passwd, $dbname);
+
+        $i = 1;
+
+        // Fetch information about game sessions and associated games
+        if ($stmt = $mysqli->prepare("SELECT c.id_CreaJeu, u.nom_util, u.prenom_util, j.nom_jeu, cj.date_Jeu
+            FROM creneaujoueur c
+            JOIN creationjeu cj ON c.id_CreaJeu = cj.id_CreaJeu
+            JOIN utilisateur u ON c.id_util = u.id_util
+            JOIN jeu j ON cj.id_jeu = j.id_jeu
+            WHERE c.statut = 0 AND c.joueur_inscris = 1 AND u.role_util = 0")) {
+
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            while ($row = $result->fetch_assoc()) {
+                echo '<tr>';
+                echo '<th scope="row">' . $i . '</th>';
+                echo '<td>' . $row['nom_util'] . '</td>';
+                echo '<td>' . $row['prenom_util'] . '</td>';
+                echo '<td>' . $row['nom_jeu'] . '</td>';
+                echo '<td>' . $row['date_Jeu'] . '</td>';
+                echo '<td><a class="btn btn-danger confirmation" href="refuser_partie.php?id_CreaJeu=' . $row['id_CreaJeu'] . '&id_util=' . $row['id_util'] . '" role="button">Refuser</a></td>';
+                echo '<td><a class="btn btn-danger confirmation" href="accepter_partie.php?id_CreaJeu=' . $row['id_CreaJeu'] . '&id_util=' . $row['id_util'] . '" role="button">Accepter</a></td>';
+                echo '</tr>';
+                $i++;
+            }
+        }
+        ?>
+        <script type="text/javascript">
+            var elems = document.getElementsByClassName('confirmation');
+            var confirmIt = function (e) {
+                if (!confirm('Are you sure?')) e.preventDefault();
+            };
+            for (var i = 0, l = elems.length; i < l; i++) {
+                elems[i].addEventListener('click', confirmIt, false);
+            }
+        </script>
+    </tbody>
+</table>
+
+
 
 
 </div>

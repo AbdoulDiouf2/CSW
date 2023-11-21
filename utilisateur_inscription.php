@@ -15,15 +15,12 @@ $row = $id_util->fetch_assoc();
 $idCreaJeu=$_GET['id_CreaJeu'];
 
 
-    if ($stmt = $mysqli->prepare("INSERT INTO creneaujoueur (id_CreaJeu, id_util, joueur_inscris) VALUES (?, ?, 1) ")) 
+    if ($stmt = $mysqli->prepare("INSERT INTO creneaujoueur (id_CreaJeu, id_util, joueur_inscris,statut) VALUES (?, ?, 1, 0) ")) 
     {
 
     $stmt->bind_param("ii", $idCreaJeu, $row['id_util']);
     $stmt->execute();
     }
-
-
-
 
 header("location:comming_parts.php")
 
