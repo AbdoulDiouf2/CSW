@@ -84,3 +84,25 @@
     </div>
   </div>
 </nav>
+
+<style>
+      .homepage-container {
+        position: relative;
+        min-height: 100vh;
+      }
+
+      .homepage-container::before {
+          content: "";
+          background-image: url('images/background.jpg');
+          background-size: cover;
+          background-position: center center;
+          background-attachment: fixed;
+          opacity: 0.2;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+      }
+</style>

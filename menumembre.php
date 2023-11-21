@@ -36,13 +36,13 @@
   </div>
 </nav>
 <style>
-  .custom-bg-membre {
-    background-color: #ff6666;
-  }
-</style>
-<style>
+      .custom-bg-membre {
+        background-color: #ff6666;
+      }
+
       .homepage-container {
         position: relative;
+        min-height: 100vh;
       }
 
       .homepage-container::before {
@@ -59,4 +59,5 @@
           height: 100%;
           z-index: -1;
       }
+
 </style>

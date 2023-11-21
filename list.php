@@ -12,7 +12,6 @@
 
 </div>
 <div class="container">
-
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link" href="admin.php">Accueil</a>
@@ -39,7 +38,7 @@
   -->
 </ul>
 <br><br>
-
+<h2>Liste des utilisateurs</h2>
 
 <!--
 --php

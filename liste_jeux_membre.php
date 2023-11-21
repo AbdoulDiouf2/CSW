@@ -39,7 +39,7 @@
 <br><br>
 
 
-
+<!--
 <table class="table">
         <thead>
             <tr>
@@ -54,7 +54,7 @@
         </thead>
         <tbody>
 
-            <?php
+            <php
             require_once("param.inc.php");
             $mysqli = mysqli_connect($host,$login,$passwd,$dbname);
 
@@ -105,13 +105,6 @@
                     echo '<td><a href="regle_de_jeu/' . $row['regle_jeu'] . '" >Règle de jeu</a></td>';
                     echo '<td><a class="btn btn-danger" href="utilisateur_aime_bis.php?id_Jeu='.$row['id_jeu'].'" role="button">Like</a></td>';
                   }
-                    /*
-                    if ($row2['joueur_inscris'] == 0) {
-                        echo '<td><a class="btn btn-danger" href="utilisateur_inscription.php?id_CreaJeu='.$row['id_jeu'].'" role="button">Inscription</a></td>';
-                    } else if ($row2['joueur_inscris'] == 1) {
-                        echo '<td><a class="btn btn-danger" href="utilisateur_desinscription.php?id_CreaJeu='.$row['id_jeu'].'" role="button">Desinscription</a></td>';
-                    }
-                    */
                     echo '</tr>';
                     $i++;
                 }
@@ -121,6 +114,81 @@
         </tbody>
 
     </table>
+          -->
+    <div class="container">
+    <h2>Liste des jeux disponibles</h2>
+    <div class="row">
+
+        <?php
+        require_once("param.inc.php");
+        $mysqli = mysqli_connect($host, $login, $passwd, $dbname);
+
+        // Ajout de la requête pour récupérer l'ID utilisateur
+        $stmt1 = $mysqli->prepare("SELECT id_util FROM utilisateur WHERE mail_util = ?");
+        $stmt1->bind_param("s", $_SESSION['email']);
+        $stmt1->execute();
+        $result1 = $stmt1->get_result();
+        $row1 = $result1->fetch_assoc();
+
+        $i = 1;
+
+        // Modification de la requête pour récupérer id_jeu
+        if ($stmt = $mysqli->prepare("SELECT id_jeu, nom_jeu, desc_jeu, categorie_jeu, photo_jeu, regle_jeu FROM jeu WHERE 1")) {
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            while ($row = $result->fetch_assoc()) {
+
+                $stmt2 = $mysqli->prepare("SELECT joueur_aimant FROM joueurjeu WHERE id_util = ? AND id_jeu = ?");
+                $stmt2->bind_param("ii", $row1['id_util'], $row['id_jeu']);
+                $stmt2->execute();
+                $result2 = $stmt2->get_result();
+                $row2 = $result2->fetch_assoc();
+                echo '<div class="col-md-4 mb-4">';
+                echo '<div class="card mr-2" style="width: 18rem;">';
+                echo '<img class="card-img-top custom-img1" src="images/' . $row['photo_jeu'] . '" alt="Card image cap">';
+                echo '<div class="card-body">';
+                echo '<h5 class="card-title">' . $row['nom_jeu'] . '</h5>';
+                echo '<p class="card-text">' . $row['desc_jeu'] . '</p>';
+                echo '<div class="container">';
+                echo '<p class="card-text"><strong>Catégorie:</strong> ' . $row['categorie_jeu'] . '</p>';
+                echo '<div class="container">';                      
+                  echo '<div class="row">';    
+                    echo '<div class="col-md-8">';
+                      echo '<a href="regle_de_jeu/' . $row['regle_jeu'] . '" class="btn btn-danger mr-4">Voir la règle</a>';
+                    echo '</div>';
+
+                    echo '<div class="col-md-4">';
+                      if ($result2->num_rows > 0) {
+                          if ($row2['joueur_aimant'] == 0) {
+                            echo '<a class="btn btn-danger" href="utilisateur_aime.php?id_Jeu=' . $row['id_jeu'] . '" role="button"><i class="fas fa-thumbs-up"></i></a>';
+                          } else if ($row2['joueur_aimant'] == 1) {
+                            echo '<a class="btn btn-danger" href="utilisateur_aime_pas.php?id_Jeu=' . $row['id_jeu'] . '" role="button"><i class="fas fa-thumbs-down"></i></a>';
+                          }
+                      } else {
+                        echo '<a class="btn btn-danger" href="utilisateur_aime_bis.php?id_Jeu=' . $row['id_jeu'] . '" role="button"><i class="fas fa-thumbs-up"></i></a>';
+                      }
+                    echo '</div>';
+                  echo '</div>';                
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                $i++;
+            }
+        }
+        ?>
+
+    </div>
+</div>
+<style>
+  .custom-img1 {
+        width: 65%;
+        height: 200px; /* Réglez la hauteur souhaitée */
+    }
+</style>
+
 
 
 </div>

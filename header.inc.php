@@ -15,5 +15,5 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 -->
   </head>
-  <body class="homepage-container">
+  <body class="homepage-container d-flex flex-column">
     

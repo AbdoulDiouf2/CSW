@@ -22,12 +22,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Envoyer l'e-mail
     if (mail($to, $email_subject, $email_body, $headers)) {
-        echo "Votre message a été envoyé avec succès.";
+        echo "<script>alert('Votre message a été envoyé avec succès.');</script>";
     } else {
-        echo "Une erreur s'est produite lors de l'envoi de votre message.";
+        echo "<script>alert('Une erreur s'est produite lors de l'envoi de votre message.');</script>";
     }
 } else {
-    // Rediriger si le formulaire n'a pas été soumis
-    header("Location: contactus.php");
+    echo "
+    <script>
+        window.location.href='contactus.php';
+        alert('Le formulaire n'a pas été soumis correctement.'); 
+    </script>";
 }
 ?>

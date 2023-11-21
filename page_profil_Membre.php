@@ -37,6 +37,17 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isMembre']) || $_SESSION['is
   -->
 </ul>
 <br><br>
+<h1>Informations Membre</h1> 
+    <?php
+      require_once("param.inc.php");
+      $mysqli = mysqli_connect($host,$login,$passwd,$dbname);
+      $stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE mail_util = ?");
+      $stmt->bind_param("s", $_SESSION['email']);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      $row = $result->fetch_assoc();
+    ?>
+    <!--
     <table class="table">
         <thead>
             <tr>
@@ -47,7 +58,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isMembre']) || $_SESSION['is
         </thead>
         <tbody>
 
-            <?php
+            <php
             require_once("param.inc.php");
             $mysqli = mysqli_connect($host,$login,$passwd,$dbname);
 
@@ -67,8 +78,33 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isMembre']) || $_SESSION['is
 
         </tbody>
     </table>
+          -->
+    <style>
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: 20%;
+            border-radius: 5px;
+        }
 
-    
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+    </style>
+    <div class="card">
+      <div class="container">
+        <img src="<?php echo 'user_photo/'.$row['photo']; ?>" alt="Avatar" style="width:100%; height:100%; object-fit: cover; border-radius: 5px;">
+        <p><b>Nom : <?php echo $row['nom_util']; ?></b></p> 
+        <p><b>Prénom : </b><?php echo $row['prenom_util']; ?></p> 
+        <p><b>Email : </b><?php echo $_SESSION['email']; ?></p> 
+        <a class="btn btn-outline-danger" href="page_modif_information_membre.php?modif=<?php echo $_SESSION['email']; ?>" role="button">Modifier mes informations</a>
+      </div>
+    </div>
+
 </div>
 
 <?php

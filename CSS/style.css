@@ -8,7 +8,6 @@
 
 footer {
     font-family: 'Handlee', cursive;
-/*    height: 100px;*/
     position: relative;
     bottom: 0;
     width: 100%;
@@ -16,6 +15,7 @@ footer {
 
 body {
     font-family: 'Handlee', cursive;
+    min-height: 100vh;
 }
 
 

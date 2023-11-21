@@ -5,6 +5,7 @@
     include 'menu.inc.php';
 ?>
 
+<div class="container flex-grow-1">
 <?php
         if(isset($_SESSION['message'])) {
             echo '<div class="alert alert-primary alert-dismissible fade show" role="alert">';
@@ -14,28 +15,7 @@
             unset($_SESSION['message']);
         }
     ?>
-<style>
-      .homepage-container {
-        position: relative;
-      }
 
-      .homepage-container::before {
-          content: "";
-          background-image: url('images/background.jpg');
-          background-size: cover;
-          background-position: center center;
-          background-attachment: fixed;
-          opacity: 0.2;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: -1;
-      }
-</style>
-
-<div class="container">
 <br><br>
 <h1 style="color: #FF6666;">Inscription</h1>
 <form  method="POST" action="tt_inscription.php">

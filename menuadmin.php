@@ -39,13 +39,13 @@
   </div>
 </nav>
 <style>
-  .custom-bg-admin {
-    background-color: #ff6666;
-  }
-</style>
-<style>
+      .custom-bg-admin {
+        background-color: #ff6666;
+      }
+
       .homepage-container {
         position: relative;
+        min-height: 100vh;
       }
 
       .homepage-container::before {
