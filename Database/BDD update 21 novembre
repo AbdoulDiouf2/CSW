@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 21, 2023 at 02:52 PM
+-- Generation Time: Nov 21, 2023 at 10:38 PM
 -- Server version: 5.6.20-log
 -- PHP Version: 5.5.15
 
@@ -40,10 +40,9 @@ CREATE TABLE IF NOT EXISTS `creationjeu` (
 
 INSERT INTO `creationjeu` (`id_CreaJeu`, `id_utilJeu`, `id_jeu`, `date_Jeu`, `Partie_terminee`) VALUES
 (0, 1, 2, '02/09/2024', 0),
-(1, 2, 2, '26/06/2024', 0),
+(1, 2, 2, '26/06/2024', 1),
 (2, 2, 4, '11/11/2023', 0),
 (3, 1, 1, '11/12/2023', 1),
-(4, 2, 0, '20/11/2023', 0),
 (6, 2, 3, '2023-11-21', 0);
 
 -- --------------------------------------------------------
@@ -155,19 +154,20 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `mail_util` varchar(30) NOT NULL,
   `mdp_util` varchar(100) NOT NULL,
   `role_util` int(3) NOT NULL,
-`id_util` int(20) NOT NULL
+`id_util` int(20) NOT NULL,
+  `photo` varchar(100) NOT NULL DEFAULT 'user.jpeg'
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`nom_util`, `prenom_util`, `mail_util`, `mdp_util`, `role_util`, `id_util`) VALUES
-('deslandes', 'valentin', 'val@gmail.com', '$2y$12$H8.pX4w25mb7MlnuC4AgnelL91zgjF4FsNEW2PUusr8hT3N.yhXuG', 2, 0),
-('admin', 'admin', 'admin@gmail.com', '$2y$12$TTw7.haG08c82t3RucB7LuQY51gxs.q94ZF9HthX16mz15zkSpnDq', 1, 1),
-('admin2', 'admin2', 'admin2@gmail.com', '$2y$12$iOAxq5XcxlGbNAu59j1JZORkPJMwxbDlzr5bVxVyFArdwqoQAhd9.', 1, 2),
-('DIOUF', 'Abdoul Ahad Mbacke', 'aamd.diouf@gmail.com', '$2y$12$xpDQ8N/z0D0Ceu9exEU4eOSOyCT.V3UP80d7ch3EKn7c9cickFCKq', 2, 6),
-('Diouf', 'Jean Bernard Made', 'jean@gmail.com', '$2y$12$Ynm2DDbu8nJPSMoixOUOxeNvT1qf1bHF/XqOa2RAcgWG6cSqROy4C', 2, 7);
+INSERT INTO `utilisateur` (`nom_util`, `prenom_util`, `mail_util`, `mdp_util`, `role_util`, `id_util`, `photo`) VALUES
+('Deslandes', 'Valentin', 'val@gmail.com', '$2y$12$H8.pX4w25mb7MlnuC4AgnelL91zgjF4FsNEW2PUusr8hT3N.yhXuG', 2, 0, 'user.jpeg'),
+('admin', 'admin', 'admin@gmail.com', '$2y$12$TTw7.haG08c82t3RucB7LuQY51gxs.q94ZF9HthX16mz15zkSpnDq', 1, 1, 'user.jpeg'),
+('admin2', 'admin2', 'admin2@gmail.com', '$2y$12$iOAxq5XcxlGbNAu59j1JZORkPJMwxbDlzr5bVxVyFArdwqoQAhd9.', 1, 2, 'user.jpeg'),
+('DIOUF', 'Abdoul Ahad Mbacke', 'aamd.diouf@gmail.com', '$2y$12$xpDQ8N/z0D0Ceu9exEU4eOSOyCT.V3UP80d7ch3EKn7c9cickFCKq', 1, 6, 'IMG_9103bis.jpeg'),
+('Diouf', 'Jean Bernard Made', 'jean@gmail.com', '$2y$12$Ynm2DDbu8nJPSMoixOUOxeNvT1qf1bHF/XqOa2RAcgWG6cSqROy4C', 2, 7, 'user.jpeg');
 
 --
 -- Indexes for dumped tables

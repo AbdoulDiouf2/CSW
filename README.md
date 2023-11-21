@@ -6,11 +6,23 @@
 # First identifiant (membre): 
 # NU: val@gmail.com
 # MDP: 1234
+#
 # ***************************************************
 # Second identifiant (admin) : 
 # NU: admin@gmail.com
 # MDP: 1234
+#
 # ***************************************************
 # Third identifiant (admin) : 
 # NU: admin2@gmail.com
+# MDP: 1234
+#
+# ***************************************************
+# Fourth identifiant (admin) :
+# NU: aamd.diouf@gmail.com
+# MDP: 1234
+#
+# ***************************************************
+# Fifth identifiant (membre) :
+# NU: jean@gmail.com
 # MDP: 1234
