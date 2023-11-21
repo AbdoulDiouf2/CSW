@@ -31,6 +31,7 @@ session_start();
                     <div class="col-md-6">
                         <label for="password" class="form-label">Mot de passe</label>
                         <input type="password" class="form-control " id="password" name="password" placeholder="Votre mot de passe..." required>
+                        <input type="checkbox" onclick="myFunction()"> Afficher le mot de passe
                     </div>
                 </div>
                 <div class="row my-3">
@@ -40,7 +41,7 @@ session_start();
 
             <div class="row my-3">
                 <div class="col-md-6">
-                    <a href="mot_de_passe_oublie.php">Mot de passe oublié ?</a>
+                    <a href="#" onclick="alert('Cette option n\'est pas disponible pour le moment ! 😞\nFaites le nécessaire pour ne pas oublier votre mot de passe ! 😉'); return false;">Mot de passe oublié ?</a>
                 </div>
             </div>
             <div class="row my-3">
@@ -50,6 +51,16 @@ session_start();
             </div>
         </div>
     </form>
+    <script>
+        function myFunction() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+        }
+</script>
     <br>
 </div>
 <?php
