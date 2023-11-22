@@ -2,7 +2,11 @@
 session_start();
 include 'header.inc.php';
 include 'menumembre.php';
-
+if (!isset($_SESSION['email']) || !isset($_SESSION['isMembre']) || $_SESSION['isMembre'] !== true) {
+  // Redirigez l'utilisateur vers la page de connexion ou une page d'erreur
+  header("Location: tt_connexion.php"); // Remplacez ceci par l'URL de votre page de connexion
+  exit();
+}
 
 ?>
 <div style="width: 200px; height: 100px; margin : auto;">
@@ -120,15 +124,7 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Par
 }
 }
 ?>
-<script type="text/javascript">
-    var elems = document.getElementsByClassName('confirmation');
-    var confirmIt = function (e) {
-        if (!confirm('Are you sure?')) e.preventDefault();
-    };
-    for (var i = 0, l = elems.length; i < l; i++) {
-        elems[i].addEventListener('click', confirmIt, false);
-    }
-</script>
+
 </tbody>
 
 </table>

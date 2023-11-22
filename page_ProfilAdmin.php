@@ -121,6 +121,8 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isA
         <th scope="col">#</th>
         <th scope="col">Nom du jeu</th>
         <th scope="col">date du jeu</th>
+        <th scope="col"></th>
+
     </tr>
   </thead>
   <tbody>

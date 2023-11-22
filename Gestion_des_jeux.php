@@ -149,7 +149,7 @@ if ($stmt = $mysqli->prepare("SELECT * FROM jeu WHERE 1")) {
                             <br>
                             <a class="btn btn-danger" href="page_modif_jeu.php?modif=<?php echo $row['nom_jeu']; ?>" role="button">Modifier</a>
                             <a class="btn btn-danger confirmation" href="delete_jeu.php?jeu=<?php echo $row['nom_jeu']; ?>" role="button">Delete</a>
-                            <a class="btn btn-danger" href="liste_aimant.php?id_Jeu=<?php echo $row['id_jeu']; ?>" role="button">Voir les inscris</a>
+                            <a class="btn btn-danger" href="liste_aimant.php?id_Jeu=<?php echo $row['id_jeu']; ?>" role="button">Voir les aimants</a>
                             <a href="regle_de_jeu/<?php echo $row['regle_jeu']; ?>" class="btn btn-danger">Règle</a>
                         </div>
                     </div>

@@ -18,7 +18,7 @@
       $stmt->execute();
       $result = $stmt->get_result();
       $row = $result->fetch_assoc();
-      echo "<h1 style = 'color: #990000; font-size: 50px; font-family: Handlee; font-weight: 400; word-wrap: break-word'>Bienvenue " . $row['prenom_util'] . ' ' . $row['nom_util'] . ",</h1>";
+      echo "<h1 style = 'color: #990000; font-size: 50px; font-family: Handlee; font-weight: 400; word-wrap: break-word'>Bienvenue " . $row['prenom_util'] . ' ' . $row['nom_util'] . "</h1>";
   }
 ?>
 <div style="width: 200px; height: 100px; margin : auto;">

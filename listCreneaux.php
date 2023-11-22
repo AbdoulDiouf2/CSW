@@ -59,6 +59,8 @@
         <th scope="col">Nom du jeu</th>
         <th scope="col">date du jeu</th>
         <th scope="col">Action</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -105,6 +107,8 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE 1"))
     {
     echo'<td><a class="btn btn-danger confirmation" href="renouveler_partie.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Renouveler la partie</a></td>';
     }
+    echo'<td><a class="btn btn-danger " href="liste_inscris_admin.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">voir les joueurs inscrits</a></td>';
+
     /*
     if($row['Partie_terminee'] == 0) {
     echo'<td><a class="btn btn-danger" href="terminer_partie.php?id_CreaJeu='.$i.'" role="button">Terminer la partie</a></td>';
@@ -134,6 +138,8 @@ $i++;
 <!-- **************************************************************** -->
 <br><br>
 <!-- **************************************************************** -->
+
+<!-- **************************************************************** 
 <h2>Liste des membres inscrits aux jeux</h2>
 <table class="table">
     <thead>
@@ -149,7 +155,7 @@ $i++;
     </thead>
     <tbody>
 
-        <?php
+        <php
         require_once("param.inc.php");
         $mysqli = mysqli_connect($host, $login, $passwd, $dbname);
 
@@ -193,7 +199,7 @@ $i++;
 </table>
 
 
-
+-->
 
 </div>
 <?php
