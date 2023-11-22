@@ -51,7 +51,7 @@
 <br><br>
 
 
-<h2>Liste des créneau</h2>
+<h2>Liste des créneaux</h2>
 <table class="table">
   <thead>
     <tr>

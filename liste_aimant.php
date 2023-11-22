@@ -89,12 +89,15 @@ if ($stmt = $mysqli->prepare("SELECT id_util FROM joueurjeu WHERE id_jeu = ? AND
     $stmt1->execute();
     $result1 = $stmt1->get_result();   
     $row1 = $result1->fetch_assoc();
+    if($row1 > 0)
+    {
     echo '<tr>';     
     echo  '<th scope="row">'.$i.'</th>';
     echo'<td>'.$row1['nom_util'].'</td>';
     echo'<td>'.$row1['prenom_util'].'</td>';
     echo '</tr>';
 $i++;   
+    }
 }
 }
 ?>

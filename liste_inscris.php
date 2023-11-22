@@ -84,17 +84,23 @@ if ($stmt = $mysqli->prepare("SELECT id_util FROM creneaujoueur WHERE id_CreaJeu
   $result = $stmt->get_result();   
   while($row = $result->fetch_assoc()) 
   {     
+    
     $stmt1 = $mysqli->prepare("SELECT * FROM utilisateur WHERE id_util = ? LIMIT 1");
+
     $stmt1->bind_param("i", $row['id_util']);
     $stmt1->execute();
+    
     $result1 = $stmt1->get_result();   
     $row1 = $result1->fetch_assoc();
+    if($row1 > 0)
+    {
     echo '<tr>';     
     echo  '<th scope="row">'.$i.'</th>';
     echo'<td>'.$row1['nom_util'].'</td>';
     echo'<td>'.$row1['prenom_util'].'</td>';
     echo '</tr>';
 $i++;   
+    }
 }
 }
 ?>
