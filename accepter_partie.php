@@ -9,14 +9,10 @@ if ($mysqli->connect_error) {
     die('Erreur de connexion (' . $mysqli->connect_error . ') '
         . $mysqli->connect_error);
 }
-
 if ($stmt = $mysqli->prepare("UPDATE creneaujeu SET statut = '1' WHERE id_CreaJeu = ? AND id_util = ?")) {
 
     $stmt->bind_param("ii", $idCreaJeu,$idUtil);
     $stmt->execute();
 }
-
-// Vous pouvez ajouter ici d'autres actions si nécessaire
-
 header("location:listCreneaux.php");
 ?>

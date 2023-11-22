@@ -4,8 +4,7 @@
     include 'header.inc.php';
     include 'menuadmin.php';
     if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
-      // Redirigez l'utilisateur vers la page de connexion ou une page d'erreur
-      header("Location: tt_connexion.php"); // Remplacez ceci par l'URL de votre page de connexion
+      header("Location: tt_connexion.php");
       exit();
   }
 ?>
@@ -57,67 +56,8 @@
   <li class="nav-item">
     <a class="nav-link" href="page_ProfilAdmin.php">Mon Profil</a>
   </li>  
-<!--  
-  <li class="nav-item">
-    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-  </li>
-  -->
 </ul>
 <br><br>
-<!--
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Categorie</th>
-      <th scope="col">Jeu</th>
-      <th scope="col">Photo</th>
-      <th scope="col">Description</th>
-      <th scope="col">Regle</th>
-    </tr>
-  </thead>
-  <tbody>
-  
-  --php
-require_once("param.inc.php");
-$mysqli = mysqli_connect($host,$login,$passwd,$dbname);
-/*
-
-// Connexion :
-require_once("param.inc.php");
-$mysqli = new mysqli($host, $login, , $dbname);
-if ($mysqli->connect_error) {
-    die('Erreur de connexion (' . $mysqli->connect_errno . ') '
-            . $mysqli->connect_error);
-}
-*/
-
-
-$i=1;
-if ($stmt = $mysqli->prepare("SELECT nom_jeu, desc_jeu, categorie_jeu, photo_jeu, regle_jeu FROM jeu WHERE 1")) 
-{
- 
-  $stmt->execute();
-  $result = $stmt->get_result();   
-  while($row = $result->fetch_assoc()) 
-  {     
-    echo '<tr>';     
-    echo  '<th scope="row">'.$i.'</th>';
-    echo'<td>'.$row['categorie_jeu'].'</td>';
-    echo'<td>'.$row['nom_jeu'].'</td>';
-    echo '<td><img src="images/'.$row['photo_jeu'].'" width="200px" height="200px"></td>';
-    echo'<td>'.$row['desc_jeu'].'</td>';
-    echo '<td><a href="regle_de_jeu/'.$row['regle_jeu'].'" >Règle de jeu</a></td>';
-    echo '</tr>';
-$i++;   
-}
-}
---?>
-
-</tbody>
-
-</table>
--->
 
 <?php
 require_once("param.inc.php");
@@ -161,14 +101,10 @@ if ($stmt = $mysqli->prepare("SELECT nom_jeu, desc_jeu, categorie_jeu, photo_jeu
 <style>
   .custom-img1 {
         width: 65%;
-        height: 200px; /* Réglez la hauteur souhaitée */
+        height: 200px;
     }
 </style>
-
-
-
 <br><br><br><br>
-
 </div>
 <?php
     include 'footer.admin.php';

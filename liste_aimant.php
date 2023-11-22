@@ -26,30 +26,36 @@
         unset($_SESSION['message']);
     }
     ?>
-    <!--  
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active disabled" aria-disabled="true" aria-current="page" >Accueil</a>
+    <a class="nav-link"  href="admin.php">Accueil</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="liste_jeux_membre.php">Liste des jeux disponibles</a>
+    <a class="nav-link" href="list.php">Liste Utilisateur</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="comming_parts.php">Partie à venir</a>
+    <a class="nav-link" href="Gestion_des_jeux.php">Gestion des jeux</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="historique_jeu.php">Historique des jeux joués</a>
+    <a class="nav-link active disabled" aria-disabled="true" aria-current="page">Liste Aimant</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="page_profil_Membre.php">Mon Profil</a>
+    <a class="nav-link" href="page_ajout_date.php">Proposition Date</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="listCreneaux.php">Gestion Créneaux</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="page_ProfilAdmin.php">Mon Profil</a>
   </li>  
-
+<!--  
   <li class="nav-item">
     <a class="nav-link disabled" aria-disabled="true">Disabled</a>
   </li>
   -->
 </ul>
 <br><br>
+
 <table class="table">
   <thead>
     <tr>

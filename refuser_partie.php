@@ -16,7 +16,5 @@ if ($stmt = $mysqli->prepare("UPDATE creneaujeu SET statut = '2' WHERE id_CreaJe
     $stmt->execute();
 }
 
-// Vous pouvez ajouter ici d'autres actions si nécessaire
-
 header("location:listCreneaux.php");
 ?>

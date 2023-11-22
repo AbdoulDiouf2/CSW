@@ -32,11 +32,6 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isA
   <li class="nav-item">
     <a class="nav-link" href="page_profil_Membre.php">Mon Profil</a>
   </li>  
-<!--  
-  <li class="nav-item">
-    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-  </li>
-  -->
 </ul>
 <br><br>
 
@@ -110,15 +105,6 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Par
     echo'<td><a class="btn btn-danger confirmation" href="utilisateur_inscription.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Inscription</a></td>';
     }
     echo'<td><a class="btn btn-danger " href="liste_inscris.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">voir les joueurs inscrits</a></td>';
-    /*
-    if($row['Partie_terminee'] == 0) {
-    echo'<td><a class="btn btn-danger" href="terminer_partie.php?id_CreaJeu='.$i.'" role="button">Terminer la partie</a></td>';
-    }
-    else if($row['Partie_terminee'] == 1)
-    {
-    echo'<td><a class="btn btn-danger" href="renouveler_partie.php?id_CreaJeu='.$i.'" role="button">Renouveler la partie</a></td>';
-    }
-    */
     echo '</tr>';
     $i++; 
   }

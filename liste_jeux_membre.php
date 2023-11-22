@@ -155,7 +155,7 @@
                 echo '<div class="container">';                      
                   echo '<div class="row">';    
                     echo '<div class="col-md-8">';
-                      echo '<a href="regle_de_jeu/' . $row['regle_jeu'] . '" class="btn btn-danger mr-4">Voir la règle</a>';
+                      echo '<a href="regle_de_jeu/' . $row['regle_jeu'] . '" class="btn btn-outline-danger mr-4">Voir la règle</a>';
                     echo '</div>';
 
                     echo '<div class="col-md-4">';

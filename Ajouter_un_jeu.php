@@ -1,52 +1,64 @@
 <?php
-  session_start(); // Pour les massages
-  if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
-    // Redirigez l'utilisateur vers la page de connexion ou une page d'erreur
-    header("Location: tt_connexion.php"); // Remplacez ceci par l'URL de votre page de connexion
-    exit();
+session_start();
+if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
+  header("Location: tt_connexion.php");
+  exit();
 }
 
-  // Contenu du formulaire :
-  $nom =  htmlentities($_POST['nom']);
- // $photo = htmlentities($_POST['photo']);
-  $photo=$_FILES['userfile']['name'];//recupérer le nom de fichier
-  $fichierTemp=$_FILES['userfile']['tmp_name'];//recupérer le nom du fichier temporaire téléchargé sur le serveur.
-  move_uploaded_file($fichierTemp,'./images/'.$photo);//transférer le fichier dans le dossier image du projet
-  if (!$fichierTemp) {
-    $_SESSION['message'] = "Échec du téléchargement de l'image.";
-    header('Location: page_ajout_jeu.php'); // Redirigez vers la page d'ajout
-    exit();
-}
-  $description =  htmlentities($_POST['description']);
-  $categorie = htmlentities($_POST['categorie']);
-  
-  $regle=$_FILES['userpdf']['name'];//recupérer le nom de fichier
-  $fichierTemp2=$_FILES['userpdf']['tmp_name'];//recupérer le nom du fichier temporaire téléchargé sur le serveur.
-  move_uploaded_file($fichierTemp2,'./regle_de_jeu/'.$regle);//transférer le fichier dans le dossier regle de jeu du projet
-  if (!$fichierTemp2) {
-    $_SESSION['message'] = "Échec du téléchargement du fichier pdf.";
-    header('Location: page_ajout_jeu.php'); // Redirigez vers la page d'ajout
-    exit();
-}
- // $regle = htmlentities($_POST['regle']);
-  
-  require_once("param.inc.php");
-  $mysqli = mysqli_connect($host,$login,$passwd,$dbname); 
-  // Attention, ici on ne vérifie pas si l'utilisateur existe déjà
-  if ($stmt = $mysqli->prepare("INSERT INTO jeu(nom_jeu, photo_jeu, desc_jeu, categorie_jeu, regle_jeu) VALUES (?, ?, ?, ?, ?)")) {
-    $stmt->bind_param("sssss", $nom, $photo, $description, $categorie, $regle);
-    // Le message est mis dans la session, il est préférable de séparer message normal et message d'erreur.
-    if($stmt->execute()) {
-      $_SESSION['message'] = "Ajout réussi";
-      header('Location: page_ajout_jeu.php');
-        
+$nom =  htmlentities($_POST['nom']);
+$photo=$_FILES['userfile']['name'];
+$fichierTemp=$_FILES['userfile']['tmp_name'];
 
-    } else {
-      $_SESSION['message'] =  "Impossible d'enregistrer" . $stmt->error;
-      header('Location: page_ajout_jeu.php');
-    }
+// cette partie me permet de vérifier que le fichier est une image
+$imageFileType = strtolower(pathinfo($photo,PATHINFO_EXTENSION));
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+  $_SESSION['message'] = "Désolé, seuls les fichiers JPG, JPEG, PNG & GIF sont autorisés.";
+  header('Location: page_ajout_jeu.php');
+  exit();
+}
+
+// cette partie me permet de vérifier que le fichier ne dépasse pas une certaine taille
+if ($_FILES["userfile"]["size"] > 100000000) {
+  $_SESSION['message'] = "Désolé, votre fichier est trop volumineux.";
+  header('Location: page_ajout_jeu.php');
+  exit();
+}
+
+move_uploaded_file($fichierTemp,'./images/'.$photo);
+
+$description =  htmlentities($_POST['description']);
+$categorie = htmlentities($_POST['categorie']);
+
+$regle=$_FILES['userpdf']['name'];
+$fichierTemp2=$_FILES['userpdf']['tmp_name'];
+
+// cette partie me permet de vérifier que le fichier est un PDF
+$pdfFileType = strtolower(pathinfo($regle,PATHINFO_EXTENSION));
+if($pdfFileType != "pdf") {
+  $_SESSION['message'] = "Désolé, seuls les fichiers PDF sont autorisés.";
+  header('Location: page_ajout_jeu.php'); 
+  exit();
+}
+
+// cette partie me permet de vérifier que le fichier ne dépasse pas une certaine taille
+if ($_FILES["userpdf"]["size"] > 100000000) {
+  $_SESSION['message'] = "Désolé, votre fichier est trop volumineux.";
+  header('Location: page_ajout_jeu.php');
+  exit();
+}
+
+move_uploaded_file($fichierTemp2,'./regle_de_jeu/'.$regle);
+
+require_once("param.inc.php");
+$mysqli = mysqli_connect($host,$login,$passwd,$dbname); 
+if ($stmt = $mysqli->prepare("INSERT INTO jeu(nom_jeu, photo_jeu, desc_jeu, categorie_jeu, regle_jeu) VALUES (?, ?, ?, ?, ?)")) {
+  $stmt->bind_param("sssss", $nom, $photo, $description, $categorie, $regle);
+  if($stmt->execute()) {
+    $_SESSION['message'] = "Ajout réussi";
+    header('Location: page_ajout_jeu.php');
+  } else {
+    $_SESSION['message'] =  "Impossible d'enregistrer" . $stmt->error;
+    header('Location: page_ajout_jeu.php');
   }
-  // Redirection vers la page d'accueil par exemple :
-
-
+}
 ?>

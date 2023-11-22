@@ -71,6 +71,16 @@
                     width: 40%;
                     border-radius: 5px;
                 }
+                @media screen and (max-width: 600px) {
+        .card {
+            width: 60%; 
+            margin: 5%;
+            font-size: 14px; 
+        }
+        .card img {
+            height: auto;
+        }
+    }
 
                 .card:hover {
                     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);

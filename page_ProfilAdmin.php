@@ -95,6 +95,17 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isA
             border-radius: 5px;
         }
 
+        @media screen and (max-width: 600px) {
+        .card {
+            width: 90%;
+            margin: 5%;
+            font-size: 14px;
+        }
+        .card img {
+            height: auto; 
+        }
+    }
+
         .card:hover {
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         }
@@ -113,7 +124,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isA
       </div>
     </div>
     <br>
-    <h1>Liste des parties que vous avez créées :</h1> <!-- Le texte au-dessus de la deuxième liste -->
+    <h1>Liste des parties que vous avez créées :</h1> 
 
     <table class="table">
   <thead>

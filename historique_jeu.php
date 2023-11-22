@@ -30,86 +30,9 @@
   <li class="nav-item">
     <a class="nav-link" href="page_profil_Membre.php">Mon Profil</a>
   </li>  
-<!--  
-  <li class="nav-item">
-    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-  </li>
-  -->
 </ul>
 <br><br>
-<!--
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nom du Jeu</th>
-      <th scope="col">Dernier moment joué</th>
-      <th scope="col">Catégorie</th>
-      <th scope="col">Photo du jeu</th>
-      <th scope="col">Règle de jeu</th>
-    </tr>
-  </thead>
-  <tbody>
-  
-    <php
-        require_once("param.inc.php");
-        $mysqli = mysqli_connect($host,$login,$passwd,$dbname);
-        
-        $i=1;
 
-
-        $stmt3 = $mysqli->prepare("SELECT id_util FROM utilisateur WHERE mail_util = ?");
-        $stmt3->bind_param("s", $_SESSION['email']);
-        $stmt3->execute();
-        $result3 = $stmt3->get_result();
-        $row3 = $result3->fetch_assoc();
-
-
-        $stmt2 = $mysqli->prepare("SELECT * FROM creneaujoueur WHERE id_util = ? AND joueur_inscris = 1");
-        $stmt2->bind_param("i", $row3['id_util']);
-        $stmt2->execute();
-        $result2 = $stmt2->get_result(); 
-        
-        while($row2 = $result2->fetch_assoc())
-        {
-
-        if ($stmt1 = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_CreaJeu = ? AND Partie_terminee = 1"))
-        {
-        $stmt1->bind_param("i", $row2['id_CreaJeu']);
-        $stmt1->execute();
-        $result1 = $stmt1->get_result(); 
-        $row1 = $result1->fetch_assoc();
-        
-
-
-        if ($stmt = $mysqli->prepare("SELECT * FROM jeu WHERE id_jeu = ?")) 
-        {
-            $stmt->bind_param("i", $row1['id_jeu']);
-            $stmt->execute();
-            $result = $stmt->get_result();   
-            while($row = $result->fetch_assoc()) 
-            {     
-                echo '<tr>';     
-                echo  '<th scope="row">'.$i.'</th>';
-                echo '<td>' . $row['nom_jeu'] . '</td>';
-                echo '<td>' . $row1['date_Jeu'] . '</td>';
-                echo '<td>' . $row['categorie_jeu'] . '</td>';
-                echo '<td><img src="images/' . $row['photo_jeu'] . '" width="200px" height="200px"></td>';
-                echo '<td><a href="regle_de_jeu/' . $row['regle_jeu'] . '" >Règle de jeu</a></td>';
-                echo '</tr>';
-                $i++;   
-            }
-        }
-      }
-        }
-    ?>
-
-</tbody>
-
-</table>
-
-<br><br><br><br>
-      -->
 <?php
 require_once("param.inc.php");
 $mysqli = mysqli_connect($host,$login,$passwd,$dbname);
@@ -173,7 +96,7 @@ $result2 = $stmt2->get_result();
 <style>
   .custom-img1 {
         width: 65%;
-        height: 200px; /* Réglez la hauteur souhaitée */
+        height: 200px;
     }
 </style>
 

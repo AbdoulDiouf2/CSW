@@ -1,5 +1,6 @@
 <?php
 session_start();
+$titre = "Membre";
 include 'header.inc.php';
 include 'menumembre.php';
 if (!isset($_SESSION['email']) || !isset($_SESSION['isMembre']) || $_SESSION['isMembre'] !== true) {
@@ -32,15 +33,10 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isMembre']) || $_SESSION['is
   <li class="nav-item">
     <a class="nav-link" href="page_profil_Membre.php">Mon Profil</a>
   </li>  
-<!--  
-  <li class="nav-item">
-    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-  </li>
-  -->
 </ul>
 <br><br>
 
-    <h1>Jeux que vous aimez</h1> <!-- Le texte au-dessus de la première liste -->
+    <h1>Jeux que vous aimez</h1>
 <table class="table">
   <thead>
     <tr>
@@ -108,15 +104,6 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Par
     echo'<td><a class="btn btn-danger confirmation" href="utilisateur_inscription.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Inscription</a></td>';
     }
     echo'<td><a class="btn btn-danger " href="liste_inscris.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">voir les joueurs inscrits</a></td>';
-    /*
-    if($row['Partie_terminee'] == 0) {
-    echo'<td><a class="btn btn-danger" href="terminer_partie.php?id_CreaJeu='.$i.'" role="button">Terminer la partie</a></td>';
-    }
-    else if($row['Partie_terminee'] == 1)
-    {
-    echo'<td><a class="btn btn-danger" href="renouveler_partie.php?id_CreaJeu='.$i.'" role="button">Renouveler la partie</a></td>';
-    }
-    */
     echo '</tr>';
     $i++; 
   }
@@ -124,15 +111,10 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Par
 }
 }
 ?>
-
 </tbody>
-
 </table>
-    
 
-
-    <h1>Jeux que vous pourrez aimer</h1> <!-- Le texte au-dessus de la deuxième liste -->
-
+    <h1>Jeux que vous pourrez aimer</h1>
     <table class="table">
   <thead>
     <tr>
@@ -159,12 +141,7 @@ $stmt2 = $mysqli->prepare("SELECT id_jeu FROM joueurjeu WHERE id_util = ? AND jo
 $stmt2->bind_param("s", $row1['id_util']);
 $stmt2->execute();
 $result2 = $stmt2->get_result();
-
-
-
 $i=1;
-
-  
 while($row2 = $result2->fetch_assoc()) 
 {
 if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Partie_terminee = 0" )) 
@@ -200,16 +177,6 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Par
     echo'<td><a class="btn btn-danger confirmation" href="utilisateur_inscription.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Inscription</a></td>';
     }
     echo'<td><a class="btn btn-danger " href="liste_inscris.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">voir les joueurs inscrits</a></td>';
-    
-    /*
-    if($row['Partie_terminee'] == 0) {
-    echo'<td><a class="btn btn-danger" href="terminer_partie.php?id_CreaJeu='.$i.'" role="button">Terminer la partie</a></td>';
-    }
-    else if($row['Partie_terminee'] == 1)
-    {
-    echo'<td><a class="btn btn-danger" href="renouveler_partie.php?id_CreaJeu='.$i.'" role="button">Renouveler la partie</a></td>';
-    }
-    */
     echo '</tr>';
     $i++; 
   }
@@ -227,12 +194,10 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Par
     }
 </script>
 </tbody>
-
 </table>
 
 
 </div>
-
 <?php
 include 'footer.admin.php';
 ?>

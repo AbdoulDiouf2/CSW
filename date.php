@@ -29,15 +29,6 @@ echo "<p>Password2:".$password."</p>\n";
 $password = password_hash("Password3", PASSWORD_BCRYPT, $options);
 echo "<p>Password3: ".$password."</p>\n";
 
-
-
- /*
- echo "<p>Bonjour en PHP</p>\n";
- $maintenant=new DateTime();
-echo "<p>Nous sommes le ".$maintenant->format('d/m/Y')."</p>\n";//.
-echo "<p>Il est ".$maintenant->format('H/i/s')."</p>\n";
-*/
-
 ?>
     </body>
 </html>

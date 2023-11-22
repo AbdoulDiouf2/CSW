@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = $_POST["message"];
 
     // Adresse e-mail de destination
-    $to = "aad.mbacke691@gmail.com";
+    $to = "abdoul.diouf2@groupe-esigelec.org";
 
     // Sujet de l'e-mail
     $email_subject = "Nouveau message de $name : $subject";
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email_body .= "Message :\n$message";
 
     // Entêtes de l'e-mail
-    $headers = "From: $email";
+    $headers = "From: aamd.diouf@gmail.com";
 
     // Envoyer l'e-mail
     if (mail($to, $email_subject, $email_body, $headers)) {

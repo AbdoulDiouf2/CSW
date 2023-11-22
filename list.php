@@ -31,83 +31,10 @@
   <li class="nav-item">
     <a class="nav-link" href="page_ProfilAdmin.php">Mon Profil</a>
   </li>  
-<!--  
-  <li class="nav-item">
-    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-  </li>
-  -->
 </ul>
 <br><br>
 <h2>Liste des utilisateurs</h2>
 
-<!--
---php
-require_once("param.inc.php");
-$mysqli = mysqli_connect($host, $login, $passwd, $dbname);
-
-$i = 1;
-if ($stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE 1")) {
-    $stmt->execute();
-    $result = $stmt->get_result();
-    ?>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Prénom</th>
-                <th scope="col">Email</th>
-                <th scope="col">Role</th>
-                <th scope="col">Action</th>
-                <th scope="col">Modifier le rôle</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            --php
-            while ($row = $result->fetch_assoc()) {
-                ?>
-                <tr>
-                    <th scope="row">--php echo $i; ?></th>
-                    <td>--php echo $row['nom_util']; ?></td>
-                    <td>--php echo $row['prenom_util']; ?></td>
-                    <td>--php echo $row['mail_util']; ?></td>
-                    <td>--php echo ($row['role_util'] == 1) ? 'Admin' : 'Membre'; ?></td>
-                    <td><a class="btn btn-danger confirmation" href="delete.php?email=--php echo $row['mail_util']; ?>" role="button">Delete</a></td>
-                    <td>
-                        --php
-                        if ($row['role_util'] == 1) {
-                            echo '<a class="btn btn-danger confirmation" href="rendremembre.php?email=' . $row['mail_util'] . '" role="button">Rendre membre</a>';
-                        } else {
-                            echo '<a class="btn btn-danger confirmation" href="rendreadmin.php?email=' . $row['mail_util'] . '" role="button">Rendre admin</a>';
-                        }
-                        ?>
-                    </td>
-                </tr>
-                --php
-                $i++;
-            }
-            ?>
-
-        </tbody>
-
-    </table>
-
-    <script type="text/javascript">
-        var elems = document.getElementsByClassName('confirmation');
-        var confirmIt = function (e) {
-            if (!confirm('Are you sure?')) e.preventDefault();
-        };
-        for (var i = 0, l = elems.length; i < l; i++) {
-            elems[i].addEventListener('click', confirmIt, false);
-        }
-    </script>
-
---php
-}
-?>
--->
 <?php
 require_once("param.inc.php");
 $mysqli = mysqli_connect($host, $login, $passwd, $dbname);

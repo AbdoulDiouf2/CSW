@@ -120,66 +120,7 @@ Carousel emplacement
             </div>
         </div>
     </div>
-<!--
-<hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
-    <div class="container">
-        <div class="row my-3">
-            <div class="row">
-                <div class="col-md-12 text-center" style="width: 100%; height: auto; color: black; font-size: 60px; font-family: Handlee; font-weight: 400; word-wrap: break-word">
-                <span style="color: #FF6666; font-size: 50px; font-family: Handlee; font-weight: 400; word-wrap: break-word">Quelques jeux que nous proposons !!!</span>
-                </div>                
-            </div>
-        </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Jeu</th>
-                    <th scope="col">Photo</th>
-                </tr>
-            </thead>
-            <tbody>                  
 
-                --php
-                require_once("param.inc.php");
-                $mysqli = mysqli_connect($host,$login,$passwd,$dbname);
-                /*
-                // Connexion :
-                require_once("param.inc.php");
-                $mysqli = new mysqli($host, $login, $passwd, $dbname);*/
-                if ($mysqli->connect_error) {
-                    die('Erreur de connexion (' . $mysqli->connect_errno . ') '
-                            . $mysqli->connect_error);
-                }
-
-                if ($stmt = $mysqli->prepare("SELECT nom_jeu, photo_jeu FROM jeu LIMIT 3")) 
-                {
-                    $stmt->execute();
-                    $result = $stmt->get_result();   
-                    while($row = $result->fetch_assoc()) 
-                    {     
-                        echo '<tr>';     
-                        echo'<td>'.$row['nom_jeu'].'</td>';
-                        echo '<td><img src="images/'.$row['photo_jeu'].'" width="200px" height="200px"></td>';
-                        echo '</tr>';
-                    }
-                }
-                ?>  
-            </tbody>
-        </table>
-    </div>
-    <style>
-        .table>:not(caption)>*>* {
-            padding: 0.5rem 0.5rem;
-            color: var(--bs-table-color-state,var(--bs-table-color-type,var(--bs-table-color)));
-            background-color: rgba(0, 0, 0, 0);
-            border-bottom-width: var(--bs-border-width);
-            box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state,var(--bs-table-bg-type,var(--bs-table-accent-bg)));
-        }
-        td {
-            font-size: 50px;
-        }
-    </style>
--->
 <hr style="width: 100%; border: none; height: 2px; background: #990000; margin: 0;">
 
 <div class="container">

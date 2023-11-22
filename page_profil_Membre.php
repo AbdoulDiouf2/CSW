@@ -47,38 +47,6 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isMembre']) || $_SESSION['is
       $result = $stmt->get_result();
       $row = $result->fetch_assoc();
     ?>
-    <!--
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Nom</th>
-                <th scope="col">Prénom</th>
-                <th scope="col">email</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            <php
-            require_once("param.inc.php");
-            $mysqli = mysqli_connect($host,$login,$passwd,$dbname);
-
-            if ($stmt = $mysqli->prepare("SELECT * FROM utilisateur WHERE mail_util = ?")) {
-                $stmt->bind_param("s", $_SESSION['email']);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                $row = $result->fetch_assoc();
-
-                echo '<tr>';
-                echo '<td>' . $row['nom_util'] . '</td>';
-                echo '<td>' . $row['prenom_util'] . '</td>';
-                echo '<td>' . $_SESSION['email'] . '</td>';
-                echo '</tr>';
-            }
-            ?>
-
-        </tbody>
-    </table>
-          -->
     <style>
         .card {
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -86,6 +54,16 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isMembre']) || $_SESSION['is
             width: 20%;
             border-radius: 5px;
         }
+        @media screen and (max-width: 600px) {
+        .card {
+            width: 90%; 
+            margin: 5%; 
+            font-size: 14px; 
+        }
+        .card img {
+            height: auto; 
+        }
+    }
 
         .card:hover {
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);

@@ -28,14 +28,6 @@ $row2 = $result2->fetch_assoc();
     $stmt->bind_param("s", $email);
     $stmt->execute();
     }
-/*
-    else 
-    {
-        $stmt1 = $mysqli->prepare("INSERT INTO joueurjeu (id_util, id_jeu, joueur_aimant) VALUES (?,?,1)");
-        $stmt1->bind_param("ii", $row2['id_util'], $idJeu);
-        $stmt1->execute();
-    }
-*/
 
 
 
