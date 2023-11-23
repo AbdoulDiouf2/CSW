@@ -5,7 +5,7 @@
   $mailAdmin =  htmlentities($_POST['email']);
   $date = htmlentities($_POST['date']);
   $nom_jeu = htmlentities($_POST['nom']);
-  
+
   require_once("param.inc.php");
   $mysqli = mysqli_connect($host,$login,$passwd,$dbname);
   if (!isset($_SESSION['email']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
@@ -29,11 +29,11 @@ if (
     $requeteInsert1->bind_param("isi", $idUtilisateur, $date, $idJeu);
     if($requeteInsert1->execute()) {
         $_SESSION['message'] = "Ajout réussi";
-        header('Location: listCreneaux.php');
+        header('Location: page_ajout_date.php');
 
     } else {
         $_SESSION['message'] =  "Ajout Impossible";
-        header('Location: listCreneaux.php');
+        header('Location: page_ajout_date.php');
     }
 }
 ?>
