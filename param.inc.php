@@ -1,5 +1,5 @@
 <?php
-/*
+  /*
   $host="localhost";
   $login="grp_3_3";
   $passwd="rcuezAm8DcHw";

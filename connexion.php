@@ -17,6 +17,16 @@ session_start();
             unset($_SESSION['message']);
         }
     ?>
+        <?php
+        if(isset($_SESSION['logOutMessage'])) {
+            echo '<div class="alert alert-primary alert-dismissible fade show" role="alert">';
+            echo $_SESSION['logOutMessage'];
+            echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+            echo '</div>';
+            unset($_SESSION['logOutMessage']);
+        }
+        session_destroy();
+    ?>
     <br>
     <form  method="POST" action="tt_connexion.php">
         <div class="container">
