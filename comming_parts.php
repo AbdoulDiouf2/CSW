@@ -136,7 +136,7 @@ $result1 = $stmt1->get_result();
 $row1 = $result1->fetch_assoc();
 
 
-//id jeu que l'utilisateur aime
+//id jeu que l'utilisateur aime pas
 $stmt2 = $mysqli->prepare("SELECT id_jeu FROM joueurjeu WHERE id_util = ? AND joueur_aimant = 0");
 $stmt2->bind_param("s", $row1['id_util']);
 $stmt2->execute();

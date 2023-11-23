@@ -56,23 +56,22 @@
 <form  method="POST" action="Ajout_date_jeu.php">
     <div class="container">
     <h2>Proposition d'un créneau pour un jeu</h2>
-    <div class="row my-3">
-        <div class="col-md-6">
-          <label for="nom" class="form-label">Séléctionnez un jeu</label>
-          <select class="form-control" id="nom" name="nom" required>
-          
-          <option value="">Sélectionnez le nom du jeu...</option>
-            <?php
-              require_once("param.inc.php");
-              $mysqli = mysqli_connect($host, $login, $passwd, $dbname);
-              $sql = "SELECT id_jeu, nom_jeu FROM jeu";
-              $result = $mysqli->query($sql);
-              while ($row = $result->fetch_assoc()) {
-                echo '<option value="' . $row['id_jeu'] . '">' . $row['nom_jeu'] . '</option>';
-              }
-            ?>
-          </select>
-        </div>
+    <div  class="row my-3">
+            <div class="col-md-6">
+                <label for="nom" class="form-label">Sélectionnez un jeu</label>
+                <select class="form-control" id="nom" name="nom_jeu" required>
+                    <option value="">Sélectionnez le nom du jeu...</option>
+                    <?php
+                    require_once("param.inc.php");
+                    $mysqli = mysqli_connect($host, $login, $passwd, $dbname);
+                    $sql = "SELECT id_jeu, nom_jeu FROM jeu";
+                    $result = $mysqli->query($sql);
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<option value="' . $row['id_jeu'] . '">' . $row['nom_jeu'] . '</option>';
+                    }
+                    ?>
+                </select>
+            </div>
 
         <div class="col-md-6">
             <label for="date" class="form-label">Date</label>
@@ -81,8 +80,8 @@
     </div>
     <br>  
     <div style="width: 200px; height: 100px; margin : auto;">
-    
-        <div class="d-grid gap-2 d-md-block"><button class="btn btn-outline-danger" type="submit">Ajouter une date de jeu</button></div> 
+    <button class="btn btn-outline-danger" type="submit" name="submit">Ajouter une date de jeu</button>
+
         <?php
     
     //echo'<td><a class="btn btn-danger " href="ajout_date_jeu.php?id_Jeu='.$row['id_jeu'].'" role="button">'.$nom.'</a></td>';
