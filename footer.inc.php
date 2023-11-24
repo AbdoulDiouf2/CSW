@@ -25,7 +25,7 @@
         ></a>
 
         <!-- Github -->
-        <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/AbdoulDiouf2/CSW" role="button"
+        <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/AbdoulDiouf2" role="button"
           ><i class="fab fa-github"></i
         ></a>
       </section>
@@ -41,7 +41,7 @@
 
             <ul class="list-unstyled mb-0">
               <li>
-                <a href="#!" class="text-white">Qui sommes-nous ?</a>
+                <a href="qui-sommes-nous.php" class="text-white">Qui sommes-nous ?</a>
               </li>
               <li>
                 <a href="#!" class="text-white">F.A.Q</a>

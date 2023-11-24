@@ -151,7 +151,7 @@ Carousel emplacement
                 echo '<h5 class="card-title">' . $row['nom_jeu'] . '</h5>';
                 echo '</div>';
                 echo '<div class="card-footer">';
-                echo '<small class="text-muted">Last updated 3 mins ago</small>';
+                echo '<small class="text-muted">Last updated 5 days ago</small>';
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';

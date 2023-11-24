@@ -31,17 +31,15 @@
     <br>
     <h2>Qui sommes-nous</h2>
 
-    <!-- Description Text -->
     <div class="description">
-        <p>Insérez votre texte de description ici.</p>
+        <p>Nous sommes deux étudiants de l'ESIGELEC impliqués dans la création d'un site web pour une association de jeux. Notre objectif est de fournir une plateforme conviviale permettant aux membres de choisir les jeux de plateau auxquels ils souhaitent jouer et de planifier des rencontres. Les administrateurs peuvent ajouter de nouveaux jeux et proposer des dates, tandis que les membres peuvent consulter la liste des jeux disponibles, lire les descriptions et règles, et indiquer leur intérêt pour un jeu spécifique.</p>
     </div>
 
-    <!-- Cartes avec nom, prénom, fonction et photo -->
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <?php
         $membres = array(
-            array("Nom2", "Prénom2", "Étudiant", "IMG_9103bis.jpeg"),
-            array("Nom3", "Prénom3", "Étudiant", "photo3.jpg")
+            array("DIOUF", "Abdoul Ahad Mbacké", "Étudiant", "user.jpeg"),
+            array("DESLANDES", "Valentin", "Étudiant", "user.jpeg")
         );
 
         foreach ($membres as $membre) {
@@ -51,7 +49,6 @@
             echo '<div class="card-body">';
             echo '<h5 class="card-title">' . $membre[0] . ' ' . $membre[1] . '</h5>';
             echo '<p class="card-text"><strong>Fonction:</strong> ' . $membre[2] . '</p>';
-            // Vous pouvez ajouter d'autres informations ici
             echo '</div>';
             echo '</div>';
             echo '</div>';

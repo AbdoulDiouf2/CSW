@@ -68,5 +68,4 @@ if ($existe == 1) {
     $existe = 0;
     header('Location: connexion.php');
 }
-// Redirection vers la page d'accueil par exemple :
 ?>

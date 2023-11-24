@@ -45,6 +45,9 @@
   <li class="nav-item">
     <a class="nav-link active disabled" aria-disabled="true" aria-current="page">Modifier mes informations</a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="page_messages_Membre.php">Mes Messages</a>
+  </li>  
 </ul>
 <br>
 <h1>Modification de vos informations</h1> 
