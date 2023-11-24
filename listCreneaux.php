@@ -107,7 +107,7 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE 1"))
     {
     echo'<td><a class="btn btn-danger confirmation" href="renouveler_partie.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">Renouveler la partie</a></td>';
     }
-    echo'<td><a class="btn btn-danger " href="liste_inscris_admin.php?id_CreaJeu='.$row['id_CreaJeu'].'" role="button">voir les joueurs inscrits</a></td>';
+    echo'<td><a class="btn btn-danger " href="liste_inscris_admin.php?id_CreaJeu='.$row['id_CreaJeu'].'&nom_jeu=' . $nomJeu .'" role="button">voir les joueurs inscrits</a></td>';
 
     echo '</tr>';
 $i++;   

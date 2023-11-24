@@ -30,6 +30,9 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isMembre']) || $_SESSION['is
   <li class="nav-item">
     <a class="nav-link active disabled" aria-disabled="true" aria-current="page">Mon Profil</a>
   </li>  
+  <li class="nav-item">
+            <a class="nav-link" href="page_messages_Membre.php">Mes messages</a>
+          </li>
 <!--  
   <li class="nav-item">
     <a class="nav-link disabled" aria-disabled="true">Disabled</a>

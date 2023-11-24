@@ -33,6 +33,9 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isMembre']) || $_SESSION['is
   <li class="nav-item">
     <a class="nav-link" href="page_profil_Membre.php">Mon Profil</a>
   </li>  
+  <li class="nav-item">
+            <a class="nav-link" href="page_messages_Membre.php">Mes messages</a>
+          </li>
 </ul>
 <br><br>
 
@@ -43,6 +46,9 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['isMembre']) || $_SESSION['is
         <th scope="col">#</th>
         <th scope="col">Nom du jeu</th>
         <th scope="col">date du jeu</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+
     </tr>
   </thead>
   <tbody>
@@ -121,6 +127,9 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creationjeu WHERE id_jeu = ? AND Par
         <th scope="col">#</th>
         <th scope="col">Nom du jeu</th>
         <th scope="col">date du jeu</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+
     </tr>
   </thead>
   <tbody>

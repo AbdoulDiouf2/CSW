@@ -44,7 +44,7 @@
                 {
                   $_SESSION['isAdmin'] = false;
                   $_SESSION['isMembre'] = true;
-                  $_SESSION['message'] = "Authentification réussi pour un membre.";
+                  //$_SESSION['message'] = "Authentification réussi pour un membre.";
                 
                 header('Location: membre.php');
               }          

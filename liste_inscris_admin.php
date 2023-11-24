@@ -75,7 +75,7 @@ if ($mysqli->connect_error) {
 }
 */
 $idCreaJeu=$_GET['id_CreaJeu'];
-
+$nomJeu=$_GET['nom_jeu'];
 
 $i=1;
 if ($stmt = $mysqli->prepare("SELECT * FROM creneaujoueur WHERE id_CreaJeu = ? AND joueur_inscris = 1")) 
@@ -99,7 +99,7 @@ if ($stmt = $mysqli->prepare("SELECT * FROM creneaujoueur WHERE id_CreaJeu = ? A
     echo  '<th scope="row">'.$i.'</th>';
     echo'<td>'.$row1['nom_util'].'</td>';
     echo'<td>'.$row1['prenom_util'].'</td>';
-    echo'<td><a class="btn btn-danger confirmation" href="membre_desinscription.php?id_CreaJeu='.$idCreaJeu.'&id_util=' . $row['id_util'] .'" role="button">Desinscrire</a></td>';
+    echo'<td><a class="btn btn-danger confirmation" href="membre_desinscription.php?id_CreaJeu='.$idCreaJeu.'&id_util=' . $row['id_util'] .'&nomJeu=' . $nomJeu .'" role="button">Desinscrire</a></td>';
     echo '</tr>';
 $i++;   
     }

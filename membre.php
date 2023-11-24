@@ -7,7 +7,9 @@
       // Redirigez l'utilisateur vers la page de connexion ou une page d'erreur
       header("Location: tt_connexion.php"); // Remplacez ceci par l'URL de votre page de connexion
       exit();
+
   }
+  
 ?>
 <?php
   require_once("param.inc.php");
@@ -19,6 +21,15 @@
       $result = $stmt->get_result();
       $row = $result->fetch_assoc();
       echo "<h1 style = 'color: #990000; font-size: 50px; font-family: Handlee; font-weight: 400; word-wrap: break-word'>Bienvenue " . $row['prenom_util'] . ' ' . $row['nom_util'] . "</h1>";
+  }
+  if ([$row['id_util']] && isset($_SESSION['utilisateurs'][$row['id_util']]['message'])) {
+  $message = $_SESSION['utilisateurs'][$row['id_util']]['message'];
+
+    // Affichez le message à l'utilisateur
+    echo $message;
+
+    // Une fois que le message a été affiché, vous pouvez le supprimer de la session si nécessaire
+    //unset($_SESSION['utilisateurs'][$row['id_util']]['message']);
   }
 ?>
 <div style="width: 200px; height: 100px; margin : auto;">
@@ -53,7 +64,10 @@
   </li>
   <li class="nav-item">
     <a class="nav-link" href="page_profil_Membre.php">Mon Profil</a>
-  </li>  
+  </li> 
+  <li class="nav-item">
+    <a class="nav-link" href="page_messages_Membre.php">Mes messages</a>
+  </li>   
 </ul>
 <br><br>
 

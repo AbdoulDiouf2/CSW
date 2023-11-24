@@ -23,6 +23,9 @@
           <li class="nav-item">
             <a class="nav-link" href="page_profil_Membre.php">Mon profil</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="page_messages_Membre.php">Mes messages</a>
+          </li>
           </ul>
       
       <ul class="navbar-nav mb-lg-0">
