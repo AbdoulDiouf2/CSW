@@ -23,6 +23,3 @@
 # MDP: 1234
 #
 # ***************************************************
-# Fifth identifiant (membre) :
-# NU: jean@gmail.com
-# MDP: 1234
