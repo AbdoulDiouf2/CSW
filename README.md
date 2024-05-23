@@ -1,4 +1,4 @@
-# CSW
+# CSW - https://moduleweb.esigelec.fr/grp_3_3/csw/
 # This is a file that is supposed to help you to understand our project
 # You'll see down below, the usernames and passwords of members and administrators
 # who are in our database.
